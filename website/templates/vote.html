@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
 
 
   <div id="songinformation">
     <div class="container">
+      <img src="{% static 'images/flag.png' %}" >
       <p>
         <strong>{{song.order}}</strong>. <strong>{{song.country}}</strong><br/>
         {{song.artist}} - {{song.title}}<br/>
@@ -17,25 +19,74 @@
           {% csrf_token %}
           <h2>Give points</h2>
           <div class="givepoints">
-            {% include 'score_selector.html' with name='show' title='Show' %}
-            {% include 'score_selector.html' with name='lightshow' title='Lightshow' %}
-            {% include 'score_selector.html' with name='outfit' title='Costumes' %}
-            {% include 'score_selector.html' with name='dress' title='Dress Beauty' %}
-            {% include 'score_selector.html' with name='melody' title='Melody' %}
-            {% include 'score_selector.html' with name='voice' title='Voice' %}
-            {% include 'score_selector.html' with name='esc_factor' title='ESC Factor' %}
-            {% include 'score_selector.html' with name='sexyness' title='Sexyness' %}
+
+            <div class="votingitem">
+              <img src="{% static 'images/show.png' %}" >
+              {% include 'score_selector.html' with name='show' title='Show' %}
+            </div>
+            <div class="votingitem">
+              <img src="{% static 'images/lights.png' %}" >
+              {% include 'score_selector.html' with name='lightshow' title='Lightshow' %}
+            </div>
+            <div class="votingitem">
+              <img src="{% static 'images/costume.png' %}" >
+              {% include 'score_selector.html' with name='outfit' title='Costumes' %}
+            </div>
+
+            <div class="votingitem">
+              <img src="{% static 'images/dress.png' %}" >
+              {% include 'score_selector.html' with name='dress' title='Dressbeauty' %}
+            </div>
+            <div class="votingitem">
+              <img src="{% static 'images/melody.png' %}" >
+              {% include 'score_selector.html' with name='melody' title='Melody' %}
+            </div>
+            <div class="votingitem">
+              <img src="{% static 'images/voice.png' %}" >
+              {% include 'score_selector.html' with name='voice' title='Voice' %}
+            </div>
+
+            <div class="votingitem">
+              <img src="{% static 'images/eurof.png' %}" >
+              {% include 'score_selector.html' with name='esc_factor' title='ESC Factor' %}
+            </div>
+            <div class="votingitem">
+              <img src="{% static 'images/sexy.png' %}" >
+              {% include 'score_selector.html' with name='sexyness' title='Sexyness' %}
+            </div>
+
           </div>
           <div class="bonuspoints">
             <h3>Bonus Points</h3>
-            {% include 'bonuspoint_selector.html' with name='modulation' title='Modulation' %}
-            {% include 'bonuspoint_selector.html' with name='dress_change' title='Dress change' %}
-            {% include 'bonuspoint_selector.html' with name='language' title='Language' %}
+
+            <div class="votingitem">
+              <img src="{% static 'images/mod.png' %}" >
+              {% include 'bonuspoint_selector.html' with name='modulation' title='Key change Modulation' %}
+            </div>
+
+            <div class="votingitem">
+              <img src="{% static 'images/cchange.png' %}" >
+              {% include 'bonuspoint_selector.html' with name='dress_change' title='Costume change' %}
+            </div>
+            <div class="votingitem">
+              <img src="{% static 'images/language.png' %}" >
+              {% include 'bonuspoint_selector.html' with name='language' title='Language Lyrics' %}
+            </div>
+
+
           </div>
           <div class="minuspoints">
             <h3>Minus Points</h3>
-            {% include 'minuspoint_selector.html' with name='douchebag' title='Ickyness' %}
-            {% include 'minuspoint_selector.html' with name='plagiarism' title='Plagiarism' %}
+            <div class="votingitem">
+              <img src="{% static 'images/klyse.png' %}" >
+              {% include 'minuspoint_selector.html' with name='douchebag' title='Ickyness' %}
+            </div>
+            <div class="votingitem">
+              <img src="{% static 'images/plag.png' %}" >
+              {% include 'minuspoint_selector.html' with name='plagiarism' title='Plagiarism' %}
+            </div>
+
+
           </div>
           <button type="submit" class="submitbutton">Vote!</button>
       </form>
