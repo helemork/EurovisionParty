@@ -14,7 +14,8 @@ def index(request):
 def songs(request):
     songs = Song.objects.all()
     return render(request,'songs.html',{
-    'songs':songs,
+        'active': 'songs',
+        'songs':songs,
     })
 
 
@@ -47,7 +48,7 @@ def vote(request, song_id):
 @login_required
 def scoreboard(request):
     return render(request, 'scoreboard.html', {
-
+        'active': 'scoreboard',
     })
 
 
