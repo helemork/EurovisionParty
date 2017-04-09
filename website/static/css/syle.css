@@ -1,0 +1,5 @@
+.listitem{
+  width:100%;
+}
+
+.order, .country, .artist, .title{display:inline-block;}

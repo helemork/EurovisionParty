@@ -1,11 +1,18 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect
 import django.contrib.auth
+from .models import *
 
 
 # Create your views here.
 def index(request):
     return render(request,'index.html')
+
+def songs(request):
+    songs = Song.objects.all()
+    return render(request,'songs.html',{
+    'songs':songs,
+    })
 
 def login(request):
     if request.method == 'POST':
