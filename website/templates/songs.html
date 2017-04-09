@@ -14,7 +14,7 @@
         <div class="separator"> - </div>
         <div class="title">{{song.title}}</div>
       </div>
-      <button class="votebutton">Vote</button>
+      <button class="votebutton" onclick="location.href='{% url 'vote' song.id %}'">Vote</button>
     </div>
     {% endfor %}
 </div>
