@@ -26,8 +26,12 @@
         <li><a href="#">Scoreboard</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'registration' %}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          {% if user.is_authenticated %}
+          <li>Logged in as {{ user.username }}</li>
+          {% else %}
+          <li><a href="{% url 'registration' %}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+          <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          {% endif %}
       </ul>
     </div>
   </div>
