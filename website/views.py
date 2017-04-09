@@ -23,21 +23,24 @@ def songs(request):
 def vote(request, song_id):
     song = Song.objects.get(id=song_id)
 
+    vote = None
     if request.method == 'POST':
         form = VoteForm(request.POST)
         if form.is_valid():
-            form.song = song
-            form.user = request.user
-            form.save()
+            vote = form.save(commit=False)
+            vote.song = song
+            vote.user = request.user
+            vote.save()
             return redirect('songs')
         else:
             print('ERROR: Vote form not valid')
+            print(form.errors)
     else:
         # If vote already exists, get it!
         try:
             vote = Vote.objects.get(user=request.user, song=song)
         except Vote.DoesNotExist:
-            vote = None
+            pass
 
     return render(request, 'vote.html', {
         'song': song,
