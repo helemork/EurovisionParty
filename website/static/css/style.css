@@ -131,9 +131,41 @@ VOTING PAGE PRESENTATION
 }
 
 #votingbox{
-  background: rgba(203, 224, 237, 0.5);
+  background: rgba(203, 224, 237, 0.3);
+  text-align: center;
 }
 
+#votingbox h2, .bonuspoints h3,.minuspoints h3{
+  margin-top:0px;
+  text-align: center;
+}
+
+.bonuspoints,.minuspoints,.givepoints{
+  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border:1px solid #d1d1d1;
+  box-sizing: border-box;
+  height:auto;
+  position:relative;
+  margin-top:10px;
+  padding-bottom:5px;
+}
+
+.bonuspoints{background: rgba(190, 219, 199, 0.3);}
+.minuspoints{background: rgba(219, 193, 190, 0.4);}
+.givepoints{background: rgba(203, 224, 237, 0.4);}
+
+.submitbutton{
+  margin-top:10px;
+  width:100%;
+  background: rgba(82, 158, 229, 0.4);
+  border:1px solid #d1d1d1;
+  border-radius:5px;
+  box-sizing: border-box;
+  padding: 5px;
+}
 /**************************************
 VOTING FORM OPTIONS
 **************************************/
