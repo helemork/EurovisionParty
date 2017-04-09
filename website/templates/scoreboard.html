@@ -5,11 +5,17 @@
         <h1>Scoreboard</h1>
         {% for song in songs %}
         <div class="listitem">
-          <div class="order">{{song.order}}</div>
-          <div class="country">{{song.country}}</div>
-          <div class="artist">{{song.artist}}</div>
-          <div class="title">{{song.title}}</div>
-            <div class="score">{{song.score}}</div>
+
+          <div class="intro">
+            <div class="order">{{song.order}}</div>
+            <div class="country">{{song.country}}</div>
+          </div>
+          <div class="info">
+            <div class="artist">{{song.artist}}</div>
+            <div class="separator"> - </div>
+            <div class="title">{{song.title}}</div>
+          </div>
+          <div class="score">{{song.score}}</div>
         </div>
         {% endfor %}
     </div>

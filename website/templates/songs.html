@@ -16,6 +16,12 @@
       </div>
       <button class="votebutton" onclick="location.href='{% url 'vote' song.id %}'">Vote</button>
     </div>
+    {% if song.score %}
+    <div class="listitem">
+      item.score | item.score ... osv | TOTAL SCORE
+    </div>
+
+    {% endif %}
     {% endfor %}
 </div>
 {% endblock %}

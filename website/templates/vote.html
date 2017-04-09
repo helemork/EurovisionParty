@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
-  <div id="songinformation">
-    <strong>{{song.order}}</strong>. <strong>{{song.country}}</strong><br/>
-    {{song.artist}} - {{song.title}}<br/>
 
+  <div id="songinformation">
+    <div class="container">
+      <p>
+        <strong>{{song.order}}</strong>. <strong>{{song.country}}</strong><br/>
+        {{song.artist}} - {{song.title}}<br/>
+      </p>
+    </div>
 
   </div>
-
+<div class="container">
   <div id="votingbox">
       <form action="" method="post">
           {% csrf_token %}
@@ -20,9 +23,11 @@
           {% include 'score_selector.html' with name='esc_factor' title='ESC Factor' %}
           {% include 'score_selector.html' with name='sexyness' title='Sexyness' %}
           {% include 'score_selector.html' with name='douchebag' title='Douchebag' %}
-          {% include 'score_selector.html' with name='modulation' title='modulation' %}
-          {% include 'score_selector.html' with name='dress_change' title='dress_change' %}
-          {% include 'score_selector.html' with name='language' title='language' %}
+          <br/>
+          {% include 'score_selector.html' with name='modulation' title='Modulation' %}
+          {% include 'score_selector.html' with name='dress_change' title='Dress change' %}
+          {% include 'score_selector.html' with name='language' title='Language' %}
+          <br/>
           <button type="submit" class="btn-lg btn-success">Vote!</button>
       </form>
   </div>

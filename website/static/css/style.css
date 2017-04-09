@@ -7,6 +7,9 @@ body{
   font-size: 18px;
 }
 
+.navbar {margin-bottom: 0px;}
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -30,7 +33,7 @@ body {
 LIST PRESENTATION
 **************************************/
 
-.order, .country, .artist, .title, .intro, .info{
+.order, .country, .artist, .title, .intro, .info,.score{
   display:inline-block;
   padding:0px;
   margin:0px;
@@ -103,6 +106,8 @@ LIST PRESENTATION
     right:5px;
     position:absolute;
   }
+
+
 }
 
 
@@ -128,3 +133,15 @@ VOTING PAGE PRESENTATION
 #votingbox{
   background: rgba(203, 224, 237, 0.5);
 }
+
+/**************************************
+VOTING FORM OPTIONS
+**************************************/
+
+.votingitems{
+  display:inline-block;
+  width:32%;
+}
+
+
+form option { color: red; }
