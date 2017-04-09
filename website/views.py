@@ -49,8 +49,14 @@ def vote(request, song_id):
 
 
 @login_required
-def scoreboard(request):
+def scoreboard_page(request):
+    return render(request, 'scoreboard_page.html', {
+        'active': 'scoreboard',
+    })
 
+
+@login_required
+def scoreboard(request):
     # Get all songs
     songs = Song.objects.all()
 
@@ -70,7 +76,6 @@ def scoreboard(request):
     sorted_songs = sorted(songs, key=song_to_key)
 
     return render(request, 'scoreboard.html', {
-        'active': 'scoreboard',
         'songs': sorted_songs,
     })
 
