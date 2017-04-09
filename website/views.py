@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect
 import django.contrib.auth
 from .models import *
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -10,6 +11,7 @@ def index(request):
         'form': UserCreationForm()
     })
 
+@login_required
 def songs(request):
     songs = Song.objects.all()
     return render(request,'songs.html',{
@@ -18,15 +20,14 @@ def songs(request):
 
 def login(request):
     if request.method == 'POST':
-        print('post')
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
-            print('valid')
             django.contrib.auth.login(request, form.get_user())
-            return redirect('index')
-        print('invalid')
+            if 'next' in request.GET:
+                return redirect(request.GET['next'])
+            else:
+                return redirect('index')
     else:
-        print('no post')
         form = AuthenticationForm()
 
     return render(request, 'login.html', {
