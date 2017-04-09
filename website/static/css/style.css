@@ -1,17 +1,38 @@
-.order, .country, .artist, .title{display:inline-block;}
-.order{width:10%;}
-.country{width:20%;}
-.artist{width:30%;}
-.title{width:30%;}
+body{
+  background:rgba(229, 224, 211, 0.5);
+  font-size: 18px;
+}
+
+footer{
+  margin-top:10px;
+  background:rgba(226, 213, 208, 0.5);
+}
+
+/**************************************
+LIST PRESENTATION
+**************************************/
+
+.order, .country, .artist, .title, .intro, .info{
+  display:inline-block;
+  padding:0px;
+  margin:0px;
+}
+.intro{width:30%;}
+.info{width:60%;}
+.order{width:20%;}
+.country{width:68%;}
+.artist{width:49%;}
+.title{width:49%;}
+
 
 .listitem{
 	width:100%;
 	background: rgba(229, 224, 211, 0.5);
 	border:1px solid #d1d1d1;
-	padding:20px;
+	padding:10px;
 	box-sizing: border-box;
 	height:auto;
-  font-size: 18px;
+  position:relative;
 }
 
 .listitem:nth-of-type(2n){
@@ -23,3 +44,63 @@
 	background:lightgrey;
 	cursor:pointer;
 }
+
+.separator{display:none;}
+
+
+.votebutton{
+  width: 50px;
+  height: 50px;
+  padding: 2px;
+  font-size: 16px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid grey;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.votebutton:hover{
+  background: rgba(226, 213, 208, 0.5);
+}
+
+
+@media only screen and (max-width: 769px) {
+  .intro{
+    width:80%;
+    border-bottom:1px solid #d1d1d1;
+  }
+  .info{width:80%;}
+  .order{width:10%;}
+  .country{width:50%;}
+  .artist,.title{
+    width:auto;
+    font-size:14px;
+  }
+
+  .separator{display:inline-block;}
+
+  .votebutton{
+    top:15px;
+    right:5px;
+    position:absolute;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**************************************
+VOTING PAGE PRESENTATION
+**************************************/

@@ -5,10 +5,16 @@
     <h1>SONGS</h1>
     {% for song in songs %}
     <div class="listitem">
-      <div class="order">{{song.order}}</div>
-      <div class="country">{{song.country}}</div>
-      <div class="artist">{{song.artist}}</div>
-      <div class="title">{{song.title}}</div>
+      <div class="intro">
+        <div class="order">{{song.order}}</div>
+        <div class="country">{{song.country}}</div>
+      </div>
+      <div class="info">
+        <div class="artist">{{song.artist}}</div>
+        <div class="separator"> - </div>
+        <div class="title">{{song.title}}</div>
+      </div>
+      <button class="votebutton">Vote</button>
     </div>
     {% endfor %}
 </div>
