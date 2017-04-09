@@ -1,0 +1,25 @@
+.order, .country, .artist, .title{display:inline-block;}
+.order{width:10%;}
+.country{width:20%;}
+.artist{width:30%;}
+.title{width:30%;}
+
+.listitem{
+	width:100%;
+	background: rgba(229, 224, 211, 0.5);
+	border:1px solid #d1d1d1;
+	padding:20px;
+	box-sizing: border-box;
+	height:auto;
+  font-size: 18px;
+}
+
+.listitem:nth-of-type(2n){
+	background: rgba(226, 213, 208, 0.5);
+}
+
+.listitem:hover{
+	color:darkgrey;
+	background:lightgrey;
+	cursor:pointer;
+}
