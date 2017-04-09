@@ -63,9 +63,15 @@ def scoreboard(request):
             total_score += vote.get_score()
         song.score = total_score
 
+    # Sort by score
+    def song_to_key(song):
+        return -song.score
+
+    sorted_songs = sorted(songs, key=song_to_key)
+
     return render(request, 'scoreboard.html', {
         'active': 'scoreboard',
-        'songs': songs,
+        'songs': sorted_songs,
     })
 
 
