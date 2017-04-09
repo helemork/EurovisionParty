@@ -6,7 +6,9 @@ from .models import *
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    return render(request,'index.html', {
+        'form': UserCreationForm()
+    })
 
 def songs(request):
     songs = Song.objects.all()
@@ -30,6 +32,10 @@ def login(request):
     return render(request, 'login.html', {
         'form': form
     })
+
+def logout(request):
+    django.contrib.auth.logout(request)
+    return redirect('index')
 
 def registration(request):
     if request.method == 'POST':
