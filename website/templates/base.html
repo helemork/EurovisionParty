@@ -20,12 +20,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Eurovision Party</a>
+      <a class="navbar-brand" href="{% url 'index' %}">Eurovision Party</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'songs' %}">Vote</a></li>
-        <li><a href="{% url 'songs' %}">Scoreboard</a></li>
+        {% if user.is_authenticated %}
+        <li {% if active == 'songs' %}class="active"{% endif %}><a href="{% url 'songs' %}">Vote</a></li>
+        <li {% if active == 'scoreboard' %}class="active"{% endif %}><a href="{% url 'scoreboard' %}">Scoreboard</a></li>
+        {% endif %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
