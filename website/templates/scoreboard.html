@@ -3,5 +3,14 @@
 {% block content %}
     <div class="container">
         <h1>Scoreboard</h1>
+        {% for song in songs %}
+        <div class="listitem">
+          <div class="order">{{song.order}}</div>
+          <div class="country">{{song.country}}</div>
+          <div class="artist">{{song.artist}}</div>
+          <div class="title">{{song.title}}</div>
+            <div class="score">{{song.score}}</div>
+        </div>
+        {% endfor %}
     </div>
 {% endblock %}

@@ -47,8 +47,22 @@ def vote(request, song_id):
 
 @login_required
 def scoreboard(request):
+
+    # Get all songs
+    songs = Song.objects.all()
+
+    # For each song; get all votes and calculate score
+    for song in songs:
+        # Get votes for this song
+        votes = Vote.objects.filter(song=song)
+        total_score = 0
+        for vote in votes:
+            total_score += vote.get_score()
+        song.score = total_score
+
     return render(request, 'scoreboard.html', {
         'active': 'scoreboard',
+        'songs': songs,
     })
 
 

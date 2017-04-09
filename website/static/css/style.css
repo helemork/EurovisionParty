@@ -3,8 +3,22 @@ body{
   font-size: 18px;
 }
 
-footer{
-  margin-top:10px;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
   background:rgba(226, 213, 208, 0.5);
 }
 
