@@ -10,8 +10,21 @@
   </div>
 
   <div id="votingbox">
-    voting content goes here
-
+      <form action="" method="post">
+          {% csrf_token %}
+          {% include 'score_selector.html' with name='show' title='Show' %}
+          {% include 'score_selector.html' with name='lightshow' title='Lightshow' %}
+          {% include 'score_selector.html' with name='outfit' title='Outfit' %}
+          {% include 'score_selector.html' with name='melody' title='Melody' %}
+          {% include 'score_selector.html' with name='voice' title='Voice' %}
+          {% include 'score_selector.html' with name='esc_factor' title='ESC Factor' %}
+          {% include 'score_selector.html' with name='sexyness' title='Sexyness' %}
+          {% include 'score_selector.html' with name='douchebag' title='Douchebag' %}
+          {% include 'score_selector.html' with name='modulation' title='modulation' %}
+          {% include 'score_selector.html' with name='dress_change' title='dress_change' %}
+          {% include 'score_selector.html' with name='language' title='language' %}
+          <button type="submit" class="btn-lg btn-success">Vote!</button>
+      </form>
   </div>
 </div>
 {% endblock %}
