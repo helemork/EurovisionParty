@@ -1,5 +1,9 @@
 body{
   background:rgba(235, 225, 237, 0.5);
+  background-image: url("/static/images/confetti.png");
+	background-repeat:  no-repeat;
+	background-size: fill;
+  background-position: top;
   font-size: 18px;
 }
 
@@ -103,18 +107,24 @@ LIST PRESENTATION
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /**************************************
 VOTING PAGE PRESENTATION
 **************************************/
+
+#songinformation,#votingbox {
+  width:100%;
+  border:1px solid #d1d1d1;
+  padding:10px;
+  box-sizing: border-box;
+  height:auto;
+  position:relative;
+  margin-bottom:10px;
+}
+
+#songinformation{
+  background: rgba(203, 213, 237, 0.5);
+}
+
+#votingbox{
+  background: rgba(203, 224, 237, 0.5);
+}

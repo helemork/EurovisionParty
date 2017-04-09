@@ -3,12 +3,12 @@
 
 <div class="container">
   <div id="songinformation">
-    <div class="jumbotron">
-  <h1>Hello, world!</h1>
-  <p>
-  </p>
-</div>
+    <strong>{{song.order}}</strong>. <strong>{{song.country}}</strong><br/>
+    {{song.artist}} - {{song.title}}<br/>
+
+
   </div>
+
   <div id="votingbox">
       <form action="" method="post">
           {% csrf_token %}
