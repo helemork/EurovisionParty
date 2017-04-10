@@ -77,6 +77,9 @@ def scoreboard(request):
     for song in songs:
         # Get votes for this song
         votes = Vote.objects.filter(song=song)
+        song.has_votes = False
+        if votes.count() > 0:
+            song.has_votes = True
         total_score = 0
         for vote in votes:
             total_score += vote.get_score()
