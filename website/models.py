@@ -7,6 +7,8 @@ class Song(models.Model):
     artist = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
 
+    def get_score(self):
+        return 'you'
 
     def __str__(self):
        return self.country

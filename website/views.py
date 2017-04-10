@@ -13,6 +13,13 @@ def index(request):
 @login_required
 def songs(request):
     songs = Song.objects.all()
+    for song in songs:
+        song.vote = None
+        try:
+            song.vote = Vote.objects.get(song = song, user = request.user)
+            song.total = song.vote.get_score()
+        except:
+            pass
     return render(request,'songs.html',{
         'active': 'songs',
         'songs':songs,

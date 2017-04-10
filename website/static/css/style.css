@@ -80,7 +80,7 @@ LIST PRESENTATION
 
 .order, .country, .artist, .title, .intro, .info,.score{
   display:inline-block;
-  padding:0px;
+  padding:5px;
   margin:0px;
 }
 .intro{width:30%;}
@@ -95,7 +95,6 @@ LIST PRESENTATION
 	width:100%;
 	background: rgba(130, 191, 214, 0.8);
 	border:1px solid #bed3e5;
-	padding:10px;
 	box-sizing: border-box;
 	height:auto;
   position:relative;
@@ -151,11 +150,23 @@ LIST PRESENTATION
     right:5px;
     position:absolute;
   }
-
-
 }
 
+.hasvotes{
+  background: rgba(3, 55, 99, 0.2);
+  border 1px solid black;
+  padding:5px;
+}
 
+.hasvotes img{
+  width:20px;
+}
+
+.tinyitems{
+  width:25px;
+  display:inline-block;
+  text-align: center;
+}
 
 /**************************************
 VOTING PAGE PRESENTATION

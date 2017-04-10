@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
 
 <div class="container">
@@ -15,13 +16,28 @@
         <div class="title">{{song.title}}</div>
       </div>
       <button class="votebutton" onclick="location.href='{% url 'vote' song.id %}'">Vote</button>
-    </div>
-    {% if song.score %}
-    <div class="listitem">
-      item.score | item.score ... osv | TOTAL SCORE
+      {% if song.vote %}
+      <div class="hasvotes">
+        <div class="tinyitems"><img src="{% static 'images/show.png' %}" >{{song.vote.show}}</div>
+        <div class="tinyitems"><img src="{% static 'images/lights.png' %}" >{{song.vote.lightshow}} </div>
+        <div class="tinyitems"><img src="{% static 'images/costume.png' %}" >{{song.vote.outfit}}</div>
+        <div class="tinyitems"><img src="{% static 'images/dress.png' %}" >{{song.vote.dress}}</div>
+        <div class="tinyitems"><img src="{% static 'images/melody.png' %}" >{{song.vote.melody}}</div>
+        <div class="tinyitems"><img src="{% static 'images/voice.png' %}" >{{song.vote.voice}}</div>
+        <div class="tinyitems"><img src="{% static 'images/eurof.png' %}" >{{song.vote.esc_factor}}</div>
+        <div class="tinyitems"><img src="{% static 'images/sexy.png' %}" >{{song.vote.sexyness}}</div>
+        <div class="tinyitems"><img src="{% static 'images/mod.png' %}" >{{song.vote.modulation}}</div>
+        <div class="tinyitems"><img src="{% static 'images/cchange.png' %}" >{{song.vote.dress_change}}</div>
+        <div class="tinyitems"><img src="{% static 'images/language.png' %}" >{{song.vote.language}}</div>
+        <div class="tinyitems"><img src="{% static 'images/klyse.png' %}" >{{song.vote.douchebag}}</div>
+        <div class="tinyitems"><img src="{% static 'images/plag.png' %}" >{{song.vote.plagiarism}}</div>
+        <div class="tinyitems">Total<br/>{{song.total}}</div>
+      </div>
+      {% endif %}
+
     </div>
 
-    {% endif %}
+
     {% endfor %}
 </div>
 {% endblock %}
