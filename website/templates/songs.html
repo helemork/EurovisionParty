@@ -8,7 +8,7 @@
     <div class="listitem">
       <div class="intro">
         <div class="order">{{song.order}}</div>
-        <div class="country">{{song.country}}</div>
+        <div class="country"><img src="{% static 'images/flags/'|add:song.country|add:'.png' %}" > {{song.country}}</div>
       </div>
       <div class="info">
         <div class="artist">{{song.artist}}</div>
