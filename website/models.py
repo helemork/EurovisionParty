@@ -29,7 +29,7 @@ class Vote(models.Model):
     language = models.IntegerField()
 
     def __str__(self):
-       return self.song
+       return self.song.country + " vote by " + self.user.username
 
     def get_score(self):
         return self.show + self.lightshow + self.outfit + self.melody + \
