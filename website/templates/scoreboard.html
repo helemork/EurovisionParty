@@ -4,7 +4,7 @@
 {% if song.has_votes %}
 <div class="listitem">
       <div class="intro">
-        <div class="order">{{song.order}}</div>
+        <div class="order">{{ forloop.counter }}</div>
         <div class="country"><img src="{% static 'images/flags/'|add:song.country|add:'.png' %}" > {{song.country}}</div>
       </div>
       <div class="info">
