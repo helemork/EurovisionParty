@@ -80,11 +80,11 @@ LIST PRESENTATION
 
 .order, .country, .artist, .title, .intro, .info,.score{
   display:inline-block;
-  padding:5px;
+  padding:0px;
   margin:0px;
 }
-.intro{width:30%;}
-.info{width:60%;}
+.intro{width:30%;padding-left: 5px;}
+.info{width:60%;padding-left: 5px;}
 .order{width:20%;}
 .country{width:68%;}
 .artist{width:49%;}
@@ -98,6 +98,7 @@ LIST PRESENTATION
 	box-sizing: border-box;
 	height:auto;
   position:relative;
+  color:rgba(13, 39, 66);
 }
 
 .listitem:nth-of-type(2n){
@@ -105,8 +106,9 @@ LIST PRESENTATION
 }
 
 .listitem:hover{
-	color:darkgrey;
-	background:lightgrey;
+	color:#eeefce;
+	background: rgba(13, 39, 66, 0.5);
+  border:1px solid #051f28;
 	cursor:pointer;
 }
 
@@ -119,8 +121,9 @@ LIST PRESENTATION
   padding: 2px;
   font-size: 16px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid grey;
+  background: rgba(13, 39, 66, 0.5);
+  color:#cee7ef;
+  border: 1px solid #cee7ef;
   text-decoration: none;
   box-sizing: border-box;
 }
@@ -133,21 +136,25 @@ LIST PRESENTATION
 @media only screen and (max-width: 769px) {
   .intro{
     width:80%;
-    border-bottom:1px solid #d1d1d1;
   }
-  .info{width:80%;}
+  .info{width:85%;}
   .order{width:10%;}
-  .country{width:50%;}
+  .country{
+    width:80%;
+    font-size:20px;
+    padding-right:0px;
+  }
   .artist,.title{
     width:auto;
     font-size:14px;
+    padding-bottom: 5px;
   }
 
   .separator{display:inline-block;}
 
   .votebutton{
-    top:15px;
-    right:5px;
+    top:2px;
+    right:2px;
     position:absolute;
   }
 }
@@ -155,7 +162,7 @@ LIST PRESENTATION
 .hasvotes{
   background: rgba(3, 55, 99, 0.2);
   border 1px solid black;
-  padding:5px;
+  padding:2px;
 }
 
 .hasvotes img{
