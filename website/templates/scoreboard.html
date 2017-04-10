@@ -1,5 +1,21 @@
 {% load static %}
 
+<div class="listitem">
+      <div class="intro">
+        <div class="order">Place</div>
+        <div class="country">Country</div>
+      </div>
+      <div class="info">
+        <div class="artist">Artist</div>
+        <div class="separator"> - </div>
+        <div class="title">Title</div>
+      </div>
+        <div class="users">
+            <div class="lover">Loved by</div>
+            <div class="hater">Hated by</div>
+        </div>
+      <div class="score">Total score</div>
+</div>
 {% for song in songs %}
 {% if song.has_votes %}
 <div class="listitem">
@@ -12,6 +28,10 @@
         <div class="separator"> - </div>
         <div class="title">{{song.title}}</div>
       </div>
+        <div class="users">
+            <div class="lover">{{ song.highest_name }} ({{ song.highest_score }})</div>
+            <div class="hater">{{ song.lowest_name }} ({{ song.lowest_score }})</div>
+        </div>
       <div class="score">{{song.score}}</div>
 </div>
 {% endif %}

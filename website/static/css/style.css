@@ -78,17 +78,21 @@ body {
 LIST PRESENTATION
 **************************************/
 
-.order, .country, .artist, .title, .intro, .info,.score{
+.order, .country, .artist, .title, .intro, .info,.score,.users,.lover,.hater{
   display:inline-block;
   padding:5px;
   margin:0px;
 }
 .intro{width:30%;}
-.info{width:60%;}
+.info{width:40%;}
+.user{width:20%;}
+
 .order{width:20%;}
 .country{width:68%;}
 .artist{width:49%;}
 .title{width:49%;}
+.lover{width:49%;}
+.hater{width:49%;}
 
 
 .listitem{
