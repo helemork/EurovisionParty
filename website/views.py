@@ -31,8 +31,17 @@ def vote(request, song_id):
     song = Song.objects.get(id=song_id)
 
     vote = None
+    # If vote already exists, get it!
+    try:
+        vote = Vote.objects.get(user=request.user, song=song)
+    except Vote.DoesNotExist:
+        pass
+
     if request.method == 'POST':
-        form = VoteForm(request.POST)
+        if vote == None:
+            form = VoteForm(request.POST)
+        else:
+            form = VoteForm(instance=vote, data=request.POST)
         if form.is_valid():
             vote = form.save(commit=False)
             vote.song = song
@@ -42,16 +51,13 @@ def vote(request, song_id):
         else:
             print('ERROR: Vote form not valid')
             print(form.errors)
-    else:
-        # If vote already exists, get it!
-        try:
-            vote = Vote.objects.get(user=request.user, song=song)
-        except Vote.DoesNotExist:
-            pass
 
     return render(request, 'vote.html', {
         'song': song,
         'vote': vote,
+        'scores': [20, 15, '---', 12, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, '---', -5, -10, -20],
+        'bonus_scores': [0, 5, 10, 15, 20, 25, 30],
+        'minus_scores': [0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -12, '---', -15, -20, -25, -30],
     })
 
 
