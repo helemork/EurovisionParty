@@ -77,10 +77,27 @@ def scoreboard(request):
     for song in songs:
         # Get votes for this song
         votes = Vote.objects.filter(song=song)
+        song.has_votes = False
         total_score = 0
-        for vote in votes:
-            total_score += vote.get_score()
+        if votes.count() > 0:
+            song.has_votes = True
+            highest_score = None
+            lowest_score = None
+            for vote in votes:
+                score = vote.get_score()
+                total_score += score
+                if highest_score is None or score > highest_score :
+                    highest_score = score
+                    highest_name = vote.user.username
+                if lowest_score is None or score < lowest_score :
+                    lowest_score = score
+                    lowest_name = vote.user.username
+
         song.score = total_score
+        song.lowest_score = lowest_score
+        song.highest_score = highest_score
+        song.lowest_name = lowest_name
+        song.highest_name = highest_name
 
     # Sort by score
     def song_to_key(song):

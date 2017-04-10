@@ -6,7 +6,7 @@
   <div id="songinformation">
     <div class="container">
       <p>
-        <strong>{{song.order}}</strong>. <strong>{{song.country}}</strong> <img src="{% static 'images/flag.png' %}" ><br/>
+        <strong>{{song.order}}</strong>. <strong>{{song.country}}</strong> <img src="{% static 'images/flags/'|add:song.country|add:'.png' %}" ><br/>
         {{song.artist}} - {{song.title}}<br/>
       </p>
     </div>
