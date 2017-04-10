@@ -54,16 +54,14 @@
               <img src="{% static 'images/sexy.png' %}" >
               {% include 'score_selector.html' with name='sexyness' title='Sexyness' %}
             </div>
-
           </div>
+
           <div class="bonuspoints">
             <h3>Bonus Points</h3>
-
             <div class="votingitem">
               <img src="{% static 'images/mod.png' %}" >
               {% include 'bonuspoint_selector.html' with name='modulation' title='Key change Modulation' %}
             </div>
-
             <div class="votingitem">
               <img src="{% static 'images/cchange.png' %}" >
               {% include 'bonuspoint_selector.html' with name='dress_change' title='Costume change' %}
@@ -72,9 +70,8 @@
               <img src="{% static 'images/language.png' %}" >
               {% include 'bonuspoint_selector.html' with name='language' title='Language Lyrics' %}
             </div>
-
-
           </div>
+
           <div class="minuspoints">
             <h3>Minus Points</h3>
             <div class="votingitem">
@@ -85,8 +82,6 @@
               <img src="{% static 'images/plag.png' %}" >
               {% include 'minuspoint_selector.html' with name='plagiarism' title='Plagiarism' %}
             </div>
-
-
           </div>
           <button type="submit" class="submitbutton">Vote!</button>
       </form>
