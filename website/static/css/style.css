@@ -82,17 +82,36 @@ LIST PRESENTATION
   display:inline-block;
   padding:0px;
   margin:0px;
+  box-sizing: border-box;
 }
 .intro{width:30%;padding-left: 5px;}
-.info{width:60%;padding-left: 5px;}
-.user{width:20%;}
-.order{width:20%;}
-.country{width:68%;}
-.artist{width:49%;}
-.title{width:49%;}
-.lover{width:49%;}
-.hater{width:49%;}
+.order{
+  width:calc(20% - 5px);
+  text-align: center;
+  }
 
+.country{
+  width:calc(80% - 5px);
+  }
+
+.info{
+  width:calc(70% - 5px);
+  padding-left:
+  }
+
+.artist{
+  width:calc(30% - 5px);
+}
+.title{
+  width:calc(30% - 5px);
+}
+.users{
+  width:calc(30% - 5px);
+}
+.score{
+  width:calc(10% - 5px);
+  text-align: center;
+}
 
 .listitem{
 	width:100%;
@@ -137,23 +156,51 @@ LIST PRESENTATION
 
 
 @media only screen and (max-width: 769px) {
+  /**************************************
+  LIST PRESENTATION
+  **************************************/
+
+  .order, .country, .artist, .title, .intro, .info,.score,.users,.lover,.hater{
+    display:inline-block;
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+    padding-bottom:2px;
+    padding-top:2px;
+  }
   .intro{
-    width:80%;
-  }
-  .info{width:85%;}
-  .order{width:10%;}
-  .country{
-    width:80%;
-    font-size:20px;
-    padding-right:0px;
-  }
-  .artist,.title{
-    width:auto;
-    font-size:14px;
-    padding-bottom: 5px;
+    width:50%;
+    padding-left: 5px;
   }
 
-  .separator{display:inline-block;}
+  .order{
+    width:calc(20% - 5px);
+    text-align: center;
+  }
+
+  .country{
+    width:calc(80% - 5px);
+  }
+
+  .info{
+    width:calc(50% - 5px);
+    padding-left:
+  }
+
+  .artist{
+    display:none;
+  }
+  .title{
+    width:calc(75% - 10px);
+  }
+  .users{
+    display:none;}
+  .score{
+    width:calc(25% - 5px);
+    text-align: center;
+  }
+
+  .separator{display:none;}
 
   .votebutton{
     top:2px;
