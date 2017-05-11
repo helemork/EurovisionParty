@@ -39,4 +39,4 @@ class Vote(models.Model):
     def get_score(self):
         return self.show + self.lightshow + self.outfit + self.melody + \
                 self.voice + self.esc_factor + self.sexyness + self.douchebag + self.modulation + \
-                self.dress_change + self.language
+                self.dress_change + self.language + self.artbreak
