@@ -104,6 +104,10 @@ LIST PRESENTATION
   color:rgba(13, 39, 66);
 }
 
+.skip_warning {
+  background-color: #db6e6c !important;
+}
+
 .listitem:nth-of-type(2n){
 	background: rgba(167, 213, 229, 0.8);
 }

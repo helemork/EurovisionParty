@@ -7,5 +7,5 @@ class VoteForm(forms.ModelForm):
         fields = ['show', 'lightshow',
                   'outfit', 'dress','melody',
                   'voice', 'esc_factor', 'sexyness',
-                  'douchebag', 'modulation',
+                  'artbreak', 'douchebag', 'modulation',
                   'dress_change', 'language','plagiarism']
