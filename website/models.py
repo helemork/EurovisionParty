@@ -29,6 +29,7 @@ class Vote(models.Model):
     douchebag = models.IntegerField()
     plagiarism = models.IntegerField()
     modulation = models.IntegerField()
+    artbreak = models.IntegerField()
     dress_change = models.IntegerField()
     language = models.IntegerField()
 

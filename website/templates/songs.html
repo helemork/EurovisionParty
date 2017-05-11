@@ -9,7 +9,7 @@
     <div class="listitem" onclick="location.href='{% url 'vote' song.id %}'">
       <div class="intro">
         <div class="order">{{song.order}}</div>
-        <div class="country"><img src="{% static 'images/flags/'|add:song.country|add:'.png' %}" > {{song.country}}</div>
+        <div class="country">{{song.country}}</div>
       </div>
       <div class="info">
         <div class="artist">{{song.artist}}</div>
@@ -28,6 +28,7 @@
         <div class="tinyitems"><img src="{% static 'images/eurof.png' %}" >{{song.vote.esc_factor}}</div>
         <div class="tinyitems"><img src="{% static 'images/sexy.png' %}" >{{song.vote.sexyness}}</div>
         <div class="tinyitems"><img src="{% static 'images/mod.png' %}" >{{song.vote.modulation}}</div>
+        <div class="tinyitems"><img src="{% static 'images/mod.png' %}" >{{song.vote.artbreak}}</div>
         <div class="tinyitems"><img src="{% static 'images/cchange.png' %}" >{{song.vote.dress_change}}</div>
         <div class="tinyitems"><img src="{% static 'images/language.png' %}" >{{song.vote.language}}</div>
         <div class="tinyitems"><img src="{% static 'images/klyse.png' %}" >{{song.vote.douchebag}}</div>
