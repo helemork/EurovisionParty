@@ -29,7 +29,8 @@
       <ul class="nav navbar-nav">
         {% if user.is_authenticated %}
         <li {% if active == 'songs' %}class="active"{% endif %}><a href="{% url 'songs' %}">Vote</a></li>
-        <li {% if active == 'scoreboard' %}class="active"{% endif %}><a href="{% url 'scoreboard' %}">Scoreboard</a></li>
+        <li {% if active == 'userscoreboard' %}class="active"{% endif %}><a href="{% url 'userscoreboard' %}">My Scoreboard</a></li>
+        <li {% if active == 'scoreboard' %}class="active"{% endif %}><a href="{% url 'scoreboard' %}">Total Scoreboard</a></li>
         {% endif %}
       </ul>
       <ul class="nav navbar-nav navbar-right">

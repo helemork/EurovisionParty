@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{%block content%}
+<div class="container">
+    <h1>Scoreboard</h1>
+    <div id="scoreboard">
+      <div class="listitem">
+            <div class="intro">
+              <div class="order">Nr.</div>
+              <div class="country">Country</div>
+            </div>
+            <div class="info">
+              <div class="artist">Artist</div>
+              <div class="separator"> - </div>
+              <div class="title">Title</div>
+              <div class="score">Total score</div>
+            </div>
+      </div>
+      {% for song in songs %}
+      {% if song.has_votes %}
+      <div class="listitem">
+        <div class="intro">
+          <div class="order">{{ forloop.counter }}</div>
+          <div class="country"><img src="{% static 'images/flags/'|add:song.country|add:'.png' %}" > {{song.country}}</div>
+        </div>
+        <div class="info">
+          <div class="artist">{{song.artist}}</div>
+          <div class="separator"> - </div>
+          <div class="title">{{song.title}}</div>
+          <div class="score">{{song.score}}</div>
+        </div>
+      </div>
+
+
+
+{% endif %}
+{% endfor %}
+  </div>
+</div>
+{%endblock%}

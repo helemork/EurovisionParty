@@ -119,6 +119,33 @@ def scoreboard(request):
     return render(request, 'scoreboard.html', {
         'songs': sorted_songs,
     })
+@login_required
+def userscoreboard(request):
+    # Get all songs
+    songs = Song.objects.filter(hidden=False)
+
+    # For each song; get all votes and calculate score
+    for song in songs:
+        # Get votes for this song
+        votes = Vote.objects.filter(song=song,user=request.user)
+        song.has_votes = False
+        total_score = 0
+        if votes.count() > 0:
+            song.has_votes = True
+            for vote in votes:
+                score = vote.get_score()
+                total_score += score
+
+        song.score = total_score
+    # Sort by score
+    def song_to_key(song):
+        return -song.score
+
+    sorted_songs = sorted(songs, key=song_to_key)
+
+    return render(request, 'userscoreboard.html', {
+        'songs': sorted_songs,
+    })
 
 
 def login(request):
