@@ -89,8 +89,13 @@ LIST PRESENTATION
   padding:0px;
   margin:0px;
   box-sizing: border-box;
+  padding-top:5px;
+  padding-bottom: 5px;
+  font-size: 22px;
 }
-.intro{width:30%;padding-left: 5px;}
+.intro{
+  width:calc(30% - 5px);
+  padding-left: 5px;}
 .order{
   width:calc(20% - 5px);
   text-align: center;
@@ -127,6 +132,12 @@ LIST PRESENTATION
 	height:auto;
   position:relative;
   color:rgba(13, 39, 66);
+}
+
+.listitem:first-child{
+  background: rgba(0, 0, 0, 0.5);
+  color:white;
+  font-weight: bold;
 }
 
 .skip_warning {

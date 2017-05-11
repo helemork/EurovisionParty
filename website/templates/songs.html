@@ -16,7 +16,7 @@
         <div class="separator"> - </div>
         <div class="title">{{song.title}}</div>
       </div>
-      <button class="votebutton" onclick="location.href='{% url 'vote' song.id %}'">Vote</button>
+      <!--<button class="votebutton" onclick="location.href='{% url 'vote' song.id %}'">Vote</button>-->
       {% if song.vote %}
       <div class="hasvotes">
         <div class="tinyitems"><img src="{% static 'images/show.png' %}" >{{song.vote.show}}</div>
