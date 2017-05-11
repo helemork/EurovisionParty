@@ -82,7 +82,7 @@ def scoreboard_page(request):
 @login_required
 def scoreboard(request):
     # Get all songs
-    songs = Song.objects.all()
+    songs = Song.objects.filter(hidden=False)
 
     # For each song; get all votes and calculate score
     for song in songs:
