@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 import django.contrib.auth
 from .forms import *
 from .models import *
@@ -47,7 +47,7 @@ def vote(request, song_id):
             vote.song = song
             vote.user = request.user
             vote.save()
-            return redirect('songs')
+            return redirect(reverse('songs') + '#song_' + str(song.id))
         else:
             print('ERROR: Vote form not valid')
             print(form.errors)

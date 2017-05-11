@@ -5,6 +5,7 @@
 <div class="container">
     <h1>SONGS</h1>
     {% for song in songs %}
+    <a name="song_{{ song.id }}"></a>
     <div class="listitem" onclick="location.href='{% url 'vote' song.id %}'">
       <div class="intro">
         <div class="order">{{song.order}}</div>
