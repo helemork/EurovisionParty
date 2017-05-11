@@ -47,7 +47,7 @@
 
             <div class="votingitem">
               <img src="{% static 'images/eurof.png' %}" >
-              {% include 'score_selector.html' with name='esc_factor' title='ESC Factor' value=vote.esc_factor %}
+              {% include 'score_selector.html' with name='esc_factor' title='ESC Factor, Catchyness' value=vote.esc_factor %}
             </div>
             <div class="votingitem">
               <img src="{% static 'images/sexy.png' %}" >
@@ -59,7 +59,11 @@
             <h3>Bonus Points</h3>
             <div class="votingitem">
               <img src="{% static 'images/mod.png' %}" >
-              {% include 'bonuspoint_selector.html' with name='modulation' title='Key change Modulation' value=vote.modulation %}
+              {% include 'bonuspoint_selector.html' with name='modulation' title='Modulation, Key Change' value=vote.modulation %}
+            </div>
+            <div class="votingitem">
+              <img src="{% static 'images/mod.png' %}" >
+              {% include 'bonuspoint_selector.html' with name='arbreak' title='Artistic Break' value=vote.artbreak %}
             </div>
             <div class="votingitem">
               <img src="{% static 'images/cchange.png' %}" >
@@ -79,7 +83,7 @@
             </div>
             <div class="votingitem">
               <img src="{% static 'images/plag.png' %}" >
-              {% include 'minuspoint_selector.html' with name='plagiarism' title='Plagiarism' value=vote.plagiarism %}
+              {% include 'minuspoint_selector.html' with name='plagiarism' title='Copycat' value=vote.plagiarism %}
             </div>
           </div>
           <button type="submit" class="submitbutton">Vote!</button>
