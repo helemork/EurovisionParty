@@ -12,7 +12,7 @@ def index(request):
 
 @login_required
 def songs(request):
-    songs = Song.objects.order_by('order')
+    songs = Song.objects.filter(hidden=False).order_by('order')
     last_with_vote = -1
     counter = 0
     for song in songs:
