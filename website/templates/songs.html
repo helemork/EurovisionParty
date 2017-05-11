@@ -5,7 +5,7 @@
 <div class="container">
     <h1>SONGS</h1>
     {% for song in songs %}
-    <div class="listitem">
+    <div class="listitem" onclick="location.href='{% url 'vote' song.id %}'">
       <div class="intro">
         <div class="order">{{song.order}}</div>
         <div class="country"><img src="{% static 'images/flags/'|add:song.country|add:'.png' %}" > {{song.country}}</div>
