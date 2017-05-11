@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 class Song(models.Model):
     order = models.PositiveIntegerField()
+    hidden = models.BooleanField(default=False)
     country = models.CharField(max_length=200)
     artist = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
@@ -39,4 +40,4 @@ class Vote(models.Model):
     def get_score(self):
         return self.show + self.lightshow + self.outfit + self.melody + \
                 self.voice + self.esc_factor + self.sexyness + self.douchebag + self.modulation + \
-                self.dress_change + self.language
+                self.dress_change + self.language + self.artbreak

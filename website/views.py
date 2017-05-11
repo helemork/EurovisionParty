@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 import django.contrib.auth
 from .forms import *
 from .models import *
@@ -12,14 +12,25 @@ def index(request):
 
 @login_required
 def songs(request):
-    songs = Song.objects.all()
+    songs = Song.objects.filter(hidden=False).order_by('order')
+    last_with_vote = -1
+    counter = 0
     for song in songs:
         song.vote = None
         try:
             song.vote = Vote.objects.get(song = song, user = request.user)
             song.total = song.vote.get_score()
+            last_with_vote = counter
         except:
             pass
+        counter += 1
+
+    # Show warning for skipped songs
+    for i in range(last_with_vote):
+        song = songs[i]
+        if song.vote is None:
+            song.warning = True
+
     return render(request,'songs.html',{
         'active': 'songs',
         'songs':songs,
@@ -47,7 +58,7 @@ def vote(request, song_id):
             vote.song = song
             vote.user = request.user
             vote.save()
-            return redirect('songs')
+            return redirect(reverse('songs') + '#song_' + str(song.id))
         else:
             print('ERROR: Vote form not valid')
             print(form.errors)
@@ -71,7 +82,7 @@ def scoreboard_page(request):
 @login_required
 def scoreboard(request):
     # Get all songs
-    songs = Song.objects.all()
+    songs = Song.objects.filter(hidden=False)
 
     # For each song; get all votes and calculate score
     for song in songs:

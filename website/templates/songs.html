@@ -5,7 +5,8 @@
 <div class="container">
     <h1>SONGS</h1>
     {% for song in songs %}
-    <div class="listitem">
+    <a name="song_{{ song.id }}"></a>
+    <div class="listitem{% if song.warning %} skip_warning{% endif %}" onclick="location.href='{% url 'vote' song.id %}'">
       <div class="intro">
         <div class="order">{{song.order}}</div>
         <div class="country">{{song.country}}</div>
