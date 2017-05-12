@@ -171,6 +171,7 @@ def global_scoreboard(request):
     for party in parties:
         # Get all songs
         songs = Song.objects.filter(hidden=False)
+        party.members = User.objects.filter(userparty__party=party)
 
         # For each song; get all votes and calculate score
         song_list = []
