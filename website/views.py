@@ -171,7 +171,7 @@ def global_scoreboard(request):
     # For each song; get all votes and calculate score
     for song in songs:
         # Get votes for this song
-        votes = Vote.objects.filter(song=song,user__userparty__party=request.user.party)
+        votes = Vote.objects.filter(song=song)
         song.has_votes = False
         total_score = 0
         if votes.count() > 0:
