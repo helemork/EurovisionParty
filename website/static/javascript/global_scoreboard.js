@@ -3,7 +3,7 @@
 function loadScoreboard() {
     console.log('load')
     $('#scoreboard').load('/global_scoreboard/get/');
-    setTimeout(loadScoreboard, 5000);
+    //setTimeout(loadScoreboard, 5000);
 }
 
 var Height, i, status;
