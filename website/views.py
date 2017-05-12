@@ -173,6 +173,7 @@ def global_scoreboard(request):
         songs = Song.objects.filter(hidden=False)
 
         # For each song; get all votes and calculate score
+        song_list = []
         for song in songs:
             # Get votes for this song
             votes = Vote.objects.filter(song=song, user__userparty__party=party)
@@ -196,17 +197,21 @@ def global_scoreboard(request):
                 song.highest_score = highest_score
                 song.lowest_name = lowest_name
                 song.highest_name = highest_name
-            song.score = total_score
+                song.score = total_score
+                song_list.append(song)
 
         # Sort by score
         def song_to_key(song):
             return -song.score
 
-        sorted_songs = sorted(songs, key=song_to_key)
+        sorted_songs = sorted(song_list, key=song_to_key)
 
-        party.songs = sorted_songs[:3]
+        party.top_songs = sorted_songs[:3]
+        if len(sorted_songs) > 3:
+            party.bottom_songs = sorted_songs[len(sorted_songs)-4:]
 
     # Global
+    songs = Song.objects.filter(hidden=False)
     for song in songs:
         # Get votes for this song
         votes = Vote.objects.filter(song=song)
