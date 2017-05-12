@@ -1,25 +1,5 @@
 {% load static %}
 
-<div class="listitem">
-      <div class="intro">
-        <div class="order">Nr.</div>
-        <div class="country">Country</div>
-      </div>
-      <div class="info">
-        <div class="artist">Artist</div>
-        <div class="separator"> - </div>
-        <div class="title">Title</div>
-
-        <div class="users">
-            <div class="lover">Biggest Fan</div>
-            <div class="hater">Lowest Score</div>
-        </div>
-        <div class="score">Total score</div>
-      </div>
-
-
-
-</div>
 {% for song in songs %}
 {% if song.has_votes %}
 <div class="listitem">
@@ -38,9 +18,31 @@
         </div>
         <div class="score">{{song.score}}</div>
       </div>
-
-
-
 </div>
 {% endif %}
+{% endfor %}
+
+{% for party in parties %}
+<h1>{{ party.name }}</h1>
+{% for song in party.songs %}
+{% if song.has_votes %}
+<div class="listitem">
+      <div class="intro">
+        <div class="order">{{ forloop.counter }}</div>
+        <div class="country"><img src="{% static 'images/flags/'|add:song.country|add:'.png' %}" style="width: 40px"> {{song.country}}</div>
+      </div>
+      <div class="info">
+        <div class="artist">{{song.artist}}</div>
+        <div class="separator"> - </div>
+        <div class="title">{{song.title}}</div>
+
+        <div class="users">
+            <div class="lover">{{ song.highest_name }} ({{ song.highest_score }})</div>
+            <div class="hater">{{ song.lowest_name }} ({{ song.lowest_score }})</div>
+        </div>
+        <div class="score">{{song.score}}</div>
+      </div>
+</div>
+{% endif %}
+{% endfor %}
 {% endfor %}

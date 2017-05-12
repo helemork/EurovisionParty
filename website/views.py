@@ -165,10 +165,48 @@ def global_scoreboard_page(request):
 @login_required
 def global_scoreboard(request):
     add_party_to_user(request)
-    # Get all songs
-    songs = Song.objects.filter(hidden=False)
 
-    # For each song; get all votes and calculate score
+    # Scoreboard per party
+    parties = Party.objects.all()
+    for party in parties:
+        # Get all songs
+        songs = Song.objects.filter(hidden=False)
+
+        # For each song; get all votes and calculate score
+        for song in songs:
+            # Get votes for this song
+            votes = Vote.objects.filter(song=song, user__userparty__party=party)
+            song.has_votes = False
+            total_score = 0
+            if votes.count() > 0:
+                song.has_votes = True
+                highest_score = None
+                lowest_score = None
+                for vote in votes:
+                    score = vote.get_score()
+                    total_score += score
+                    if highest_score is None or score > highest_score :
+                        highest_score = score
+                        highest_name = vote.user.username
+                    if lowest_score is None or score < lowest_score :
+                        lowest_score = score
+                        lowest_name = vote.user.username
+
+                song.lowest_score = lowest_score
+                song.highest_score = highest_score
+                song.lowest_name = lowest_name
+                song.highest_name = highest_name
+            song.score = total_score
+
+        # Sort by score
+        def song_to_key(song):
+            return -song.score
+
+        sorted_songs = sorted(songs, key=song_to_key)
+
+        party.songs = sorted_songs[:3]
+
+    # Global
     for song in songs:
         # Get votes for this song
         votes = Vote.objects.filter(song=song)
@@ -198,9 +236,10 @@ def global_scoreboard(request):
     def song_to_key(song):
         return -song.score
 
-    sorted_songs = sorted(songs, key=song_to_key)
+    sorted_songs = sorted(songs, key=song_to_key)[:5]
 
-    return render(request, 'scoreboard.html', {
+    return render(request, 'global_scoreboard.html', {
+        'parties': parties,
         'songs': sorted_songs,
     })
 
