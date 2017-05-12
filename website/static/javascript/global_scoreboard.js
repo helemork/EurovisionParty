@@ -1,50 +1,58 @@
 // Load scoreboard every 5 secs
 
 function loadScoreboard() {
-    console.log('load')
     $('#scoreboard').load('/global_scoreboard/get/');
+    Height = $("#scrollwrapper").height(); // Update height
+    console.log('load, height', Height);
     setTimeout(loadScoreboard, 5000);
 }
 
 var Height, i, status;
+var viewportHeight;
+
+function updateViewportHeight() {
+     if (self.innerHeight)
+        viewportHeight = window.innerHeight
+    else if (document.documentElement && document.documentElement.clientHeight)
+        viewportHeight= document.documentElement.clientHeight;
+    else if (document.body)
+        viewportHeight= document.body.clientHeight;
+    console.log('vp height', viewportHeight);
+}
 
 $(document).ready(function() {
-    $('#scoreboard').load('/global_scoreboard/get/');
+    $('#scoreboard').load('/global_scoreboard/get/', function() {
 
-    setTimeout(loadScoreboard, 5000);
-    var body = document.body, html = document.documentElement;
+        setTimeout(loadScoreboard, 5000);
 
-    Height = $(document).height();
-    console.log('Scroll height', Height);
-    console.log('Scroll height', $(window).height());
-    console.log('Scroll height', $(html).height());
-    var _docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight;
-    console.log('Scroll height', _docHeight);
+        Height = $("#scrollwrapper").height();
+        updateViewportHeight();
 
-    $('#activate_scroll_button').click(function() {
-        function scrollpage() {
-            function f() {
-                window.scrollTo(0, i);
-                console.log('Scroll', i);
-                if (status == 0) {
-                    i = i + 4;
-                    if (i >= Height) {
-                        status = 1;
+        $('#activate_scroll_button').click(function () {
+            function scrollpage() {
+                function f() {
+                    window.scrollTo(0, i);
+                    updateViewportHeight();
+                    if (status == 0) {
+                        i = i + 4;
+                        if (i >= Height - viewportHeight) {
+                            status = 1;
+                        }
+                    } else {
+                        i = i - 4;
+                        if (i <= 1) {
+                            status = 0;
+                        }  // if you don't want continue scroll then remove this line
                     }
-                } else {
-                    i = i - 4;
-                    if (i <= 1) {
-                        status = 0;
-                    }  // if you don't want continue scroll then remove this line
+                    setTimeout(f, 100);
                 }
-                setTimeout(f, 100);
+
+                f();
             }
 
-            f();
-        }
-
-        i = 1;
-        status = 0;
-        scrollpage();
+            i = 1;
+            status = 0;
+            scrollpage();
+        });
     });
 });
