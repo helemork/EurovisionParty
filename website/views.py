@@ -205,10 +205,12 @@ def global_scoreboard(request):
             return -song.score
 
         sorted_songs = sorted(song_list, key=song_to_key)
+        for i in range(len(sorted_songs)):
+            sorted_songs[i].place = i + 1
 
         party.top_songs = sorted_songs[:3]
         if len(sorted_songs) > 3:
-            party.bottom_songs = sorted_songs[len(sorted_songs)-4:]
+            party.bottom_songs = sorted_songs[max(3, len(sorted_songs)-4):]
 
     # Global
     songs = Song.objects.filter(hidden=False)

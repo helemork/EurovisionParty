@@ -23,11 +23,11 @@
 {% endfor %}
 
 {% for party in parties %}
-<h1>{{ party.name }}</h1>
+<h1 class="listheading">{{ party.name }}</h1>
 {% for song in party.top_songs %}
 <div class="listitem">
       <div class="intro">
-        <div class="order">{{ forloop.counter }}</div>
+        <div class="order">{{ song.place }}</div>
         <div class="country"><img src="{% static 'images/flags/'|add:song.country|add:'.png' %}" style="width: 40px"> {{song.country}}</div>
       </div>
       <div class="info">
@@ -47,7 +47,7 @@
 {% for song in party.bottom_songs %}
 <div class="listitem">
       <div class="intro">
-        <div class="order">{{ forloop.counter }}</div>
+        <div class="order">{{ song.place }}</div>
         <div class="country"><img src="{% static 'images/flags/'|add:song.country|add:'.png' %}" style="width: 40px"> {{song.country}}</div>
       </div>
       <div class="info">
