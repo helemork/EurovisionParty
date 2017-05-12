@@ -2,6 +2,24 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class Party(models.Model):
+    name = models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+class UserParty(models.Model):
+    user = models.ForeignKey(User)
+    party = models.ForeignKey(Party)
+
+    def get_user_party(user):
+        try:
+            return UserParty.objects.get(user=user).party
+        except:
+            return None
+
+
 class Song(models.Model):
     order = models.PositiveIntegerField()
     hidden = models.BooleanField(default=False)

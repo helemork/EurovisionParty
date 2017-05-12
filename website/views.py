@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, reverse
 import django.contrib.auth
 from .forms import *
@@ -6,12 +7,23 @@ from .models import *
 from django.contrib.auth.decorators import login_required
 
 
+def add_party_to_user(request):
+    request.user.party = UserParty.get_user_party(request.user)
+
 def index(request):
-    return render(request,'index.html', {})
+    add_party_to_user(request)
+    context = {}
+    if request.user.is_authenticated:
+        if UserParty.get_user_party(request.user) is None:
+            # Get all parties
+            context['parties'] = Party.objects.all()
+
+    return render(request,'index.html', context)
 
 
 @login_required
 def songs(request):
+    add_party_to_user(request)
     songs = Song.objects.filter(hidden=False).order_by('order')
     last_with_vote = -1
     counter = 0
@@ -39,6 +51,7 @@ def songs(request):
 
 @login_required
 def vote(request, song_id):
+    add_party_to_user(request)
     song = Song.objects.get(id=song_id)
 
     vote = None
@@ -72,22 +85,44 @@ def vote(request, song_id):
     })
 
 
+
+
+@login_required
+def join_party(request):
+    if request.method == 'POST':
+        party_id = request.POST.getlist('party', 0)[0]
+        print(party_id)
+        password = request.POST['password']
+
+        party = Party.objects.get(id=party_id)
+        if party.password == password:
+            UserParty.objects.filter(user=request.user).delete() # Delete any old
+            user_party = UserParty()
+            user_party.user = request.user
+            user_party.party = party
+            user_party.save()
+            return redirect('index')
+        else:
+            return HttpResponse('Wrong password!')
+
+
 @login_required
 def scoreboard_page(request):
+    add_party_to_user(request)
     return render(request, 'scoreboard_page.html', {
         'active': 'scoreboard',
     })
 
-
 @login_required
 def scoreboard(request):
+    add_party_to_user(request)
     # Get all songs
     songs = Song.objects.filter(hidden=False)
 
     # For each song; get all votes and calculate score
     for song in songs:
         # Get votes for this song
-        votes = Vote.objects.filter(song=song)
+        votes = Vote.objects.filter(song=song,user__userparty__party=request.user.party)
         song.has_votes = False
         total_score = 0
         if votes.count() > 0:
@@ -104,11 +139,11 @@ def scoreboard(request):
                     lowest_score = score
                     lowest_name = vote.user.username
 
+            song.lowest_score = lowest_score
+            song.highest_score = highest_score
+            song.lowest_name = lowest_name
+            song.highest_name = highest_name
         song.score = total_score
-        song.lowest_score = lowest_score
-        song.highest_score = highest_score
-        song.lowest_name = lowest_name
-        song.highest_name = highest_name
 
     # Sort by score
     def song_to_key(song):
@@ -119,8 +154,59 @@ def scoreboard(request):
     return render(request, 'scoreboard.html', {
         'songs': sorted_songs,
     })
+
+@login_required
+def global_scoreboard_page(request):
+    add_party_to_user(request)
+    return render(request, 'global_scoreboard_page.html', {
+        'active': 'global_scoreboard',
+    })
+
+@login_required
+def global_scoreboard(request):
+    add_party_to_user(request)
+    # Get all songs
+    songs = Song.objects.filter(hidden=False)
+
+    # For each song; get all votes and calculate score
+    for song in songs:
+        # Get votes for this song
+        votes = Vote.objects.filter(song=song,user__userparty__party=request.user.party)
+        song.has_votes = False
+        total_score = 0
+        if votes.count() > 0:
+            song.has_votes = True
+            highest_score = None
+            lowest_score = None
+            for vote in votes:
+                score = vote.get_score()
+                total_score += score
+                if highest_score is None or score > highest_score :
+                    highest_score = score
+                    highest_name = vote.user.username
+                if lowest_score is None or score < lowest_score :
+                    lowest_score = score
+                    lowest_name = vote.user.username
+
+            song.lowest_score = lowest_score
+            song.highest_score = highest_score
+            song.lowest_name = lowest_name
+            song.highest_name = highest_name
+        song.score = total_score
+
+    # Sort by score
+    def song_to_key(song):
+        return -song.score
+
+    sorted_songs = sorted(songs, key=song_to_key)
+
+    return render(request, 'scoreboard.html', {
+        'songs': sorted_songs,
+    })
+
 @login_required
 def userscoreboard(request):
+    add_party_to_user(request)
     # Get all songs
     songs = Song.objects.filter(hidden=False)
 
@@ -145,6 +231,7 @@ def userscoreboard(request):
 
     return render(request, 'userscoreboard.html', {
         'songs': sorted_songs,
+        'userscoreboard': 'userscoreboard',
     })
 
 

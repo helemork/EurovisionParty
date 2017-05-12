@@ -2,9 +2,24 @@
 {% load staticfiles %}
 {% block content %}
 {% if user.is_authenticated %}
-<img src="{% static 'images/eurofront.png' %}" width="100%">
+    {% if user.party %}
+        <img src="{% static 'images/eurofront.png' %}" width="100%">
+    {% else %}
+        <div class="container content">
+            Select your party:
+        <form action="{% url 'join_party' %}" method="post">
+            {% csrf_token %}
+            <select name="party">
+                {% for party in parties %}
+                    <option value="{{ party.id }}">{{ party.name }}</option>
+                {% endfor %}
+            </select><br>
+            Password: <input type="text" name="password"><br>
+            <input type="submit" value="Join!">
+        </form>
+    {% endif %}
 {% else %}
-<div class="container content">
+    <div class="container content">
     <h1>Welcome to Eurovision Party!</h1>
         <p>
             You are not logged in.
@@ -13,6 +28,6 @@
         <p>
             <a href="{% url 'login' %}" class="btn-lg btn-success">Login</a> <a href="{% url 'registration' %}" class="btn-lg btn-success">Register</a>
         </p>
-        {% endif %}
-</div>
+{% endif %}
+    </div>
 {% endblock %}
