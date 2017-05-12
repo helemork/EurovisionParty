@@ -134,10 +134,16 @@ LIST PRESENTATION
   color:rgba(13, 39, 66);
 }
 
-.listitem:first-child{
+.listheading{
   background: rgba(0, 0, 0, 0.5);
   color:white;
   font-weight: bold;
+  border: 1px solid black;
+}
+
+h1.listheading{
+  margin-bottom:0px;
+  padding:5px;
 }
 
 .skip_warning {

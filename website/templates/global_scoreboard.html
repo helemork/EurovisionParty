@@ -23,7 +23,7 @@
 {% endfor %}
 
 {% for party in parties %}
-<h1>{{ party.name }}</h1>
+<h1 class="listheading">{{ party.name }}</h1>
 {% for song in party.songs %}
 {% if song.has_votes %}
 <div class="listitem">
