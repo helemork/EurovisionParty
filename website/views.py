@@ -210,7 +210,7 @@ def global_scoreboard(request):
 
         party.top_songs = sorted_songs[:3]
         if len(sorted_songs) > 3:
-            party.bottom_songs = sorted_songs[max(3, len(sorted_songs)-4):]
+            party.bottom_songs = sorted_songs[max(3, len(sorted_songs)-3):]
 
     # Global
     songs = Song.objects.filter(hidden=False)
