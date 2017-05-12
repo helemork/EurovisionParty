@@ -131,12 +131,28 @@ LIST PRESENTATION
 	box-sizing: border-box;
 	height:auto;
   position:relative;
-  color:rgba(13, 39, 66);
+  color:black;
+}
+.listitem:nth-of-type(2n){
+	background: rgba(167, 213, 229, 0.7);
+}
+.bottomlist{
+  background: rgba(183, 137, 137, 0.7);
+}
+.bottomlist:nth-of-type(2n){
+	background: rgba(150, 105, 105, 0.7);
+}
+
+.toplist{
+  background: rgba(88, 163, 110, 0.7);
+}
+.toplist:nth-of-type(2n){
+	background: rgba(130, 186, 146, 0.7);
 }
 
 .listheading{
   background: rgba(0, 0, 0, 0.5);
-  color:white;
+  color:#bed3e5;
   font-weight: bold;
   border: 1px solid black;
 }
@@ -150,9 +166,7 @@ h1.listheading{
   background-color: #db6e6c !important;
 }
 
-.listitem:nth-of-type(2n){
-	background: rgba(167, 213, 229, 0.8);
-}
+
 
 .listitem:hover{
 	color:#eeefce;
