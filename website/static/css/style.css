@@ -157,9 +157,22 @@ LIST PRESENTATION
   border: 1px solid black;
 }
 
+.memberlist{
+font-size: 22px;
+text-align: center;
+}
+
 h1.listheading{
   margin-bottom:0px;
   padding:5px;
+}
+
+h3.listheading{
+  margin-bottom:0px;
+  margin-top:0px;
+  padding:5px;
+  font-weight: normal;
+  text-align: center;
 }
 
 .skip_warning {

@@ -23,7 +23,20 @@
 {% endfor %}
 
 {% for party in parties %}
-<h1 class="listheading">{{ party.name }} Top 3 songs</h1>
+
+
+
+<h1 class="listheading">{{ party.name }}</h1>
+<div class="listitem memberlist">
+  {% for user in party.members %}
+    {{user.username}}
+    {% if not forloop.last %}
+    , 
+    {% endif%}
+  {% endfor%}
+</div>
+
+<h3 class="listheading">Top 3 songs</h1>
 {% for song in party.top_songs %}
 <div class="listitem toplist">
       <div class="intro">
@@ -44,7 +57,7 @@
 </div>
 {% endfor %}
 
-<h1 class="listheading">{{ party.name }} Bottom 3 songs</h1>
+<h3 class="listheading"> Bottom 3 songs</h1>
 {% for song in party.bottom_songs %}
 <div class="listitem bottomlist">
       <div class="intro">
