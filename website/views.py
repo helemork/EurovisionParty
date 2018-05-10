@@ -5,7 +5,10 @@ import django.contrib.auth
 from .forms import *
 from .models import *
 from django.contrib.auth.decorators import login_required
+from datetime import date
 
+def get_current_year():
+    return date.today().year
 
 def add_party_to_user(request):
     request.user.party = UserParty.get_user_party(request.user)
@@ -16,7 +19,7 @@ def index(request):
     if request.user.is_authenticated:
         if UserParty.get_user_party(request.user) is None:
             # Get all parties
-            context['parties'] = Party.objects.all()
+            context['parties'] = Party.objects.filter(contest__year=get_current_year())
 
     return render(request,'index.html', context)
 
@@ -24,7 +27,7 @@ def index(request):
 @login_required
 def songs(request):
     add_party_to_user(request)
-    songs = Song.objects.filter(hidden=False).order_by('order')
+    songs = Song.objects.filter(hidden=False, contest__year=get_current_year()).order_by('order')
     last_with_vote = -1
     counter = 0
     for song in songs:
@@ -117,12 +120,12 @@ def scoreboard_page(request):
 def scoreboard(request):
     add_party_to_user(request)
     # Get all songs
-    songs = Song.objects.filter(hidden=False)
+    songs = Song.objects.filter(hidden=False, contest__year=get_current_year())
 
     # For each song; get all votes and calculate score
     for song in songs:
         # Get votes for this song
-        votes = Vote.objects.filter(song=song,user__userparty__party=request.user.party)
+        votes = Vote.objects.filter(song=song,user__userparty__party=request.user.party, contest__year=get_current_year())
         song.has_votes = False
         total_score = 0
         if votes.count() > 0:
@@ -167,10 +170,10 @@ def global_scoreboard(request):
     add_party_to_user(request)
 
     # Scoreboard per party
-    parties = Party.objects.all()
+    parties = Party.objects.filter(contest__year=get_current_year())
     for party in parties:
         # Get all songs
-        songs = Song.objects.filter(hidden=False)
+        songs = Song.objects.filter(hidden=False, contest__year=get_current_year())
         party.members = User.objects.filter(userparty__party=party)
 
         # For each song; get all votes and calculate score
@@ -214,7 +217,7 @@ def global_scoreboard(request):
             party.bottom_songs = sorted_songs[max(3, len(sorted_songs)-3):]
 
     # Global
-    songs = Song.objects.filter(hidden=False)
+    songs = Song.objects.filter(hidden=False, contest__year=get_current_year())
     for song in songs:
         # Get votes for this song
         votes = Vote.objects.filter(song=song)
@@ -255,7 +258,7 @@ def global_scoreboard(request):
 def userscoreboard(request):
     add_party_to_user(request)
     # Get all songs
-    songs = Song.objects.filter(hidden=False)
+    songs = Song.objects.filter(hidden=False, contest__year=get_current_year())
 
     # For each song; get all votes and calculate score
     for song in songs:

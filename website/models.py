@@ -1,10 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Contest(models.Model):
+    year = models.PositiveSmallIntegerField(unique=True)
+    country = models.CharField(max_length=200)
+
+    def __str__(self):
+        return str(self.year) + ' - ' + self.country
 
 class Party(models.Model):
     name = models.CharField(max_length=200)
     password = models.CharField(max_length=200)
+    contest = models.ForeignKey(Contest)
 
     def __str__(self):
         return self.name
@@ -26,12 +33,13 @@ class Song(models.Model):
     country = models.CharField(max_length=200)
     artist = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
+    contest = models.ForeignKey(Contest)
 
     def get_score(self):
         return 'you'
 
     def __str__(self):
-       return self.country
+       return self.country + ' - ' + self.title
 
 
 class Vote(models.Model):
