@@ -2,8 +2,9 @@ from django.contrib import admin
 from .models import *
 
 class SongAdmin(admin.ModelAdmin):
-    list_display = ('country', 'title', 'contest')
+    list_display = ('country', 'title', 'order', 'contest')
     list_filter = ('contest',)
+    list_editable = ('order', )
 
 admin.site.register(Song, SongAdmin)
 
