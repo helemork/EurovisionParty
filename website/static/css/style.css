@@ -366,3 +366,12 @@ VOTING FORM OPTIONS
 .votingitems{
   display:inline-block;
 }
+
+.flexyflex{
+  display:flex;
+  text-align: center;
+}
+.itemitem{
+  flex:1;
+  display:inline-block;
+}
