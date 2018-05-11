@@ -29,14 +29,14 @@
       <ul class="nav navbar-nav">
         {% if user.party %}
         <li {% if active == 'songs' %}class="active"{% endif %}><a href="{% url 'songs' %}">Vote</a></li>
-        <li {% if active == 'userscoreboard' %}class="active"{% endif %}><a href="{% url 'userscoreboard' %}">My Scoreboard</a></li>
-        <li {% if active == 'scoreboard' %}class="active"{% endif %}><a href="{% url 'scoreboard' %}">Party Scoreboard</a></li>
-            <li {% if active == 'global_scoreboard' %}class="active"{% endif %}><a href="{% url 'global_scoreboard' %}">Global Scoreboard</a></li>
+        <li {% if active == 'userscoreboard' %}class="active"{% endif %}><a href="{% url 'userscoreboard' %}">My Scores</a></li>
+        <li {% if active == 'scoreboard' %}class="active"{% endif %}><a href="{% url 'scoreboard' %}">Party</a></li>
+            <li {% if active == 'global_scoreboard' %}class="active"{% endif %}><a href="{% url 'global_scoreboard' %}">Global</a></li>
         {% endif %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
-          <li><a href=""><span class="glyphicon glyphicon-user"></span> Logged in as {{ user.username }}</a></li>
+          <li><a href=""><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
           <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
           {% else %}
           <li><a href="{% url 'registration' %}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
