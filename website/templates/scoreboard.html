@@ -42,24 +42,12 @@
 
 </div>
 <div class="listitem flexyflex">
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-  <div class="itemitem">x</div>
-
+{% for voter, score, real_score in song.voters %}
+    <div class="itemitem" style="height: 100px;">
+        <div style="height: {{ score }}%; background-color: red;">{{ real_score }}</div>
+        <p style="text-orientation: upright; writing-mode: vertical-lr;">{{ voter|slice:"5" }}</p>
+    </div>
+{% endfor %}
 </div>
 {% endif %}
 {% endfor %}
