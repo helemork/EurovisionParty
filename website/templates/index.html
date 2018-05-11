@@ -3,9 +3,11 @@
 {% block content %}
 {% if user.is_authenticated %}
     {% if user.party %}
+        <div class="midpic"><img src="{% static 'images/party.png' %}" ></div>
         <img src="{% static 'images/eurofront.png' %}" width="100%">
+
     {% else %}
-        <div class="container content">
+        <div class="frontpage container content">
             Select your party:
         <form action="{% url 'join_party' %}" method="post">
             {% csrf_token %}
@@ -14,20 +16,22 @@
                     <option value="{{ party.id }}">{{ party.name }}</option>
                 {% endfor %}
             </select><br>
-            Password: <input type="text" name="password"><br>
-            <input type="submit" value="Join!">
+            Password: </br>
+            <input type="text" name="password"><br>
+            <input type="submit" value="Join!" class="btn-lg btn-success" id="btnbtn">
         </form>
+        <img src="{% static 'images/welcome.png' %}" >
     {% endif %}
 {% else %}
-    <div class="container content">
-    <h1>Welcome to Eurovision Party!</h1>
-        <p>
-            You are not logged in.
-        </p>
-
+    <div class="frontpage container content ">
+    <h1>Welcome to</h1>
+    <img src="{% static 'images/logo.png' %}" width="100%">
+    <h1>2018</h1>
+  </br>
         <p>
             <a href="{% url 'login' %}" class="btn-lg btn-success">Login</a> <a href="{% url 'registration' %}" class="btn-lg btn-success">Register</a>
         </p>
+          <img src="{% static 'images/verka.png' %}" >
 {% endif %}
     </div>
 {% endblock %}

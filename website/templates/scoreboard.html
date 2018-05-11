@@ -1,51 +1,34 @@
 {% load static %}
 
-<div class="listheading listitem">
-      <div class="intro">
+<div class="partylist listheading listitem">
         <div class="order">Nr.</div>
         <div class="country">Country</div>
-      </div>
-      <div class="info">
         <div class="artist">Artist</div>
         <div class="separator"> - </div>
-        <div class="title">Title</div>
-
-        <div class="users">
-            <div class="lover">Biggest Fan</div>
-            <div class="hater">Lowest Score</div>
-        </div>
-        <div class="score">Total score</div>
-      </div>
-
-
-
+        <div class="party_title">Title</div>
+        <div class="emptyspace"></div>
+        <div class="party_score">Total score</div>
 </div>
 {% for song in songs %}
 {% if song.has_votes %}
-<div class="listitem">
-      <div class="intro">
+<div class="partylist listitem">
         <div class="order">{{ forloop.counter }}</div>
-        <div class="country"><img src="{% static 'images/flags/'|add:song.country|add:'.png' %}" style="width: 40px"> {{song.country}}</div>
-      </div>
-      <div class="info">
+        <div class="country"><img src="{% static 'images/flags/'|add:song.country|add:'.png' %}"> {{song.country}}</div>
         <div class="artist">{{song.artist}}</div>
         <div class="separator"> - </div>
         <div class="title">{{song.title}}</div>
-
-        <div class="users">
-            <div class="lover">{{ song.highest_name }} ({{ song.highest_score }})</div>
-            <div class="hater">{{ song.lowest_name }} ({{ song.lowest_score }})</div>
-        </div>
+        <div class="emptyspace"></div>
         <div class="score">{{song.score}}</div>
-      </div>
-
-
 </div>
 <div class="listitem flexyflex">
 {% for voter, score, real_score in song.voters %}
-    <div class="itemitem" style="height: 100px;">
-        <div style="height: {{ score }}%; background-color: red;">{{ real_score }}</div>
-        <p style="text-orientation: upright; writing-mode: vertical-lr;">{{ voter|slice:"5" }}</p>
+    <div class="itemitem">
+        <div style="min-height:15px;">
+          <div class="bar" style="height:calc(40px * {{ score }} / 100 );"></div>
+          <span>{{ real_score }}</span>
+          <div class="downtext">{{ voter|slice:"6" }}</div>
+        </div>
+
     </div>
 {% endfor %}
 </div>

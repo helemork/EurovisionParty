@@ -12,7 +12,7 @@ body{
 CHANGES TO THE HEADER
 **************************************/
 .navbar-brand{
-  width:130px;
+  width:160px;
 }
 .navbar-brand img{
   position:absolute;
@@ -111,18 +111,38 @@ LIST PRESENTATION
   }
 
 .artist{
-  width:calc(30% - 5px);
+  width:calc(40% - 5px);
 }
 .title{
-  width:calc(30% - 5px);
+  width:calc(50% - 5px);
 }
 .users{
-  width:calc(30% - 5px);
+  width:100%;
+  text-align: center;
 }
 .score{
   width:calc(10% - 5px);
   text-align: center;
 }
+
+.partylist{display:flex;}
+.partylist .order{width:25px;  font-size:14pt;}
+.partylist .country{
+  width:200px;
+  font-size:14pt;
+  text-align: center;
+}
+.partylist img{
+  width: 25px;
+  vertical-align: top;
+}
+.emptyspace{flex:1;}
+
+.partylist .artist, .partylist .title{
+  font-size: 14pt;
+}
+
+
 
 .listitem{
 	width:100%;
@@ -206,6 +226,18 @@ h3.listheading{
 
 .votebutton:hover{
   background: rgba(226, 213, 208, 0.5);
+}
+
+.tinylist{
+  height:30px;
+  margin:0px;
+  padding:0px;
+}
+
+.tinylist div{
+  margin:0px;
+  padding:0px;
+  font-size: 14pt;
 }
 
 
@@ -374,4 +406,87 @@ VOTING FORM OPTIONS
 .itemitem{
   flex:1;
   display:inline-block;
+  text-align: center;
 }
+
+.itemitem span{
+  background:rgba(255,255,255,0.3);
+  border-radius:50%;
+  padding:2px;
+
+}
+
+.bar{margin:2px; background:rgba(255,255,255,0.5);}
+
+.downtext{
+  margin-top:5px;
+  text-orientation:sideways;
+  writing-mode: vertical-lr;
+  font-size:10pt;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width:18px;
+}
+
+.frontpage{
+  text-align: center;
+
+}
+
+.frontpage img{
+  margin-left: auto;
+  margin-right: auto;
+  width:400px;
+}
+
+
+@media only screen and (max-width: 769px) {
+  .frontpage img{
+    margin-left: auto;
+    margin-right: auto;
+    width:90%;
+    max-width: 400px;
+  }
+}
+
+.btn-success,.btn-success:hover{
+  background-color:rgb(216, 75, 200);
+  border-color:rgb(216, 75, 250);
+}
+
+.btn-success:hover{
+  opacity:0.4;
+}
+
+.helptext, label{
+  display:block;
+}
+
+.helptext{
+  font-size: 12pt;
+  width:220px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#btnbtn{width:200px;}
+#btnbtn{margin:10px;}
+.regform{text-align: center;}
+.midpic{
+  width:100%;
+  position:absolute;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.midpic img{
+  margin-top:20vh;
+  height: auto;
+  width:auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.hater{color:#66061b;}
+.lover{color:#016301}

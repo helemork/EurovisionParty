@@ -12,12 +12,15 @@
         <div class="separator"> - </div>
         <div class="title">{{song.title}}</div>
 
-        <div class="users">
-            <div class="lover">{{ song.highest_name }} ({{ song.highest_score }})</div>
-            <div class="hater">{{ song.lowest_name }} ({{ song.lowest_score }})</div>
-        </div>
+
         <div class="score">{{song.score}}</div>
       </div>
+</div>
+<div class="tinylist listitem">
+  <div class="users">
+      <div class="hater"><i class="material-icons">thumb_down</i> {{ song.lowest_name }}{{average}} ({{ song.lowest_score }})</div> -
+      <div class="lover">{{ song.highest_name }}{{average}} ({{ song.highest_score }}) <i class="material-icons">thumb_up</i> </div>
+  </div>
 </div>
 {% endif %}
 {% endfor %}
@@ -31,7 +34,7 @@
   {% for user in party.members %}
     {{user.username}}
     {% if not forloop.last %}
-    , 
+    ,
     {% endif%}
   {% endfor%}
 </div>
@@ -47,13 +50,14 @@
         <div class="artist">{{song.artist}}</div>
         <div class="separator"> - </div>
         <div class="title">{{song.title}}</div>
-
-        <div class="users">
-            <div class="lover">{{ song.highest_name }} ({{ song.highest_score }})</div>
-            <div class="hater">{{ song.lowest_name }} ({{ song.lowest_score }})</div>
-        </div>
         <div class="score">{{song.score}}</div>
       </div>
+</div>
+<div class="tinylist listitem">
+  <div class="users">
+      <div class="hater"><i class="material-icons">thumb_down</i> {{ song.lowest_name }}{{average}} ({{ song.lowest_score }})</div> -
+      <div class="lover">{{ song.highest_name }}{{average}} ({{ song.highest_score }}) <i class="material-icons">thumb_up</i> </div>
+  </div>
 </div>
 {% endfor %}
 
@@ -68,13 +72,14 @@
         <div class="artist">{{song.artist}}</div>
         <div class="separator"> - </div>
         <div class="title">{{song.title}}</div>
-
-        <div class="users">
-            <div class="lover">{{ song.highest_name }} ({{ song.highest_score }})</div>
-            <div class="hater">{{ song.lowest_name }} ({{ song.lowest_score }})</div>
-        </div>
         <div class="score">{{song.score}}</div>
       </div>
+</div>
+<div class="tinylist listitem">
+  <div class="users">
+      <div class="hater"><i class="material-icons">thumb_down</i> {{ song.lowest_name }}{{average}} ({{ song.lowest_score }})</div> -
+      <div class="lover">{{ song.highest_name }}{{average}} ({{ song.highest_score }}) <i class="material-icons">thumb_up</i> </div>
+  </div>
 </div>
 {% endfor %}
 {% endfor %}

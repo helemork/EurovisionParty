@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 {% block content %}
-    <div class="container content">
+    <div class="frontpage container content">
         <h1>Login</h1>
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="btn-lg btn-success">Login</button>
+          </br>
+            <img src="{% static 'images/flageuro.png' %}" >
         </form>
+
     </div>
 {% endblock %}
