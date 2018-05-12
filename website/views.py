@@ -129,6 +129,7 @@ def scoreboard(request):
         song.has_votes = False
         total_score = 0
         voters = {}
+        song.voters = []
         if votes.count() > 0:
             song.has_votes = True
             highest_score = None
@@ -152,18 +153,16 @@ def scoreboard(request):
             song.highest_score = highest_score
             song.lowest_name = lowest_name
             song.highest_name = highest_name
+            for voter, score in voters.items():
+                song.voters.append((voter, score))
+            song.voters = sorted(song.voters, key=lambda x: x[1])
+
+            # Normalize socres
+            max_user_score = song.voters[-1][1]
+            for i in range(len(song.voters)):
+                song.voters[i] = (song.voters[i][0], int(song.voters[i][1]/max_user_score*100), song.voters[i][1])
+
         song.score = total_score
-
-        song.voters = []
-        for voter, score in voters.items():
-            song.voters.append((voter, score))
-        song.voters = sorted(song.voters, key=lambda x: x[1])
-
-        # Normalize socres
-        max_user_score = song.voters[-1][1]
-        for i in range(len(song.voters)):
-            song.voters[i] = (song.voters[i][0], int(song.voters[i][1]/max_user_score*100), song.voters[i][1])
-
 
     # Sort by score
     def song_to_key(song):
