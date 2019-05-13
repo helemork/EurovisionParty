@@ -1,0 +1,8 @@
+#scoreboard .listitem{
+  width:100%;
+  margin:0px;
+}
+
+#scoreboard .listitem div{
+  display: inline-block;
+}
