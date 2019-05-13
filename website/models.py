@@ -29,7 +29,7 @@ class UserParty(models.Model):
 
     def has_easy_mode(user):
         try:
-            UserParty.objects.get(user=user).easy_mode
+            return UserParty.objects.get(user=user).easy_mode
         except:
             return None
 
