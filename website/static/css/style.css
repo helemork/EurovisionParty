@@ -210,22 +210,25 @@ VOTING FORM OPTIONS
   display:flex;
   text-align: center;
 }
-.itemitem{
+.listitem .itemitem{
   flex:1;
   display:inline-block;
   text-align: center;
+  padding:0px;
+    max-width: 100%;
 }
 
 .itemitem span{
   background:rgba(255,255,255,0.3);
   border-radius:50%;
   padding:2px;
-
+  display:block;
+  text-align: center;
 }
 
 .bar{margin:2px; background:rgba(255,255,255,0.5);}
 
-.downtext{
+.listitem .downtext{
   margin-top:5px;
   text-orientation:sideways;
   writing-mode: vertical-lr;
@@ -233,7 +236,7 @@ VOTING FORM OPTIONS
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  width:18px;
+  max-width: 100%;
 }
 
 .frontpage{

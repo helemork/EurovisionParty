@@ -10,3 +10,12 @@
 #scoreboard .listheading .order{
   display: none;
 }
+
+@media only screen and (max-width: 769px) {
+  #scoreboard  .order{
+    left:5px;
+    top:0px;
+    display:inline-block;
+    position:relative;
+  }
+}
