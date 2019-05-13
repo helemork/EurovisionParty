@@ -12,6 +12,7 @@ def get_current_year():
 
 def add_party_to_user(request):
     request.user.party = UserParty.get_user_party(request.user)
+    request.user.easy_mode = UserParty.objects.get(user=request.user).easy_mode
 
 def index(request):
     add_party_to_user(request)
@@ -299,6 +300,13 @@ def userscoreboard(request):
         'songs': sorted_songs,
         'userscoreboard': 'userscoreboard',
     })
+
+@login_required
+def switch_mode(request):
+    user_party = UserParty.objects.get(user=request.user)
+    user_party.easy_mode = not user_party.easy_mode
+    user_party.save()
+    return redirect(request.META['HTTP_REFERER'])
 
 
 def login(request):
