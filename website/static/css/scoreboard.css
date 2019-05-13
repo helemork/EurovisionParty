@@ -19,3 +19,22 @@
     position:relative;
   }
 }
+
+
+.global .tinylist{
+  text-align: center;
+  background: rgb(115, 187, 225);
+  padding:10px;
+  height:auto;
+}
+
+.score{
+  position:absolute;
+  right:10px;
+  font-size: 18pt;
+  top:calc(50%-10px);
+}
+
+.global .listitem div{
+  max-width: 100%;
+}

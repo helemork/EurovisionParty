@@ -20,17 +20,17 @@
 
 
 .bottomlist{
-  background: rgba(183, 137, 137, 0.7);
+  background: rgb(92, 54, 116);
 }
 .bottomlist:nth-of-type(2n){
-	background: rgba(150, 105, 105, 0.7);
+	background: rgb(92, 54, 116);
 }
 
 .toplist{
-  background: rgba(88, 163, 110, 0.7);
+  background: rgb(1, 117, 131);
 }
 .toplist:nth-of-type(2n){
-	background: rgba(130, 186, 146, 0.7);
+	background: rgb(1, 117, 131);
 }
 
 .listheading{

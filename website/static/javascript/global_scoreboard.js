@@ -23,7 +23,7 @@ function updateViewportHeight() {
 $(document).ready(function() {
     $('#scoreboard').load('/global_scoreboard/get/', function() {
 
-        setTimeout(loadScoreboard, 5000);
+        //setTimeout(loadScoreboard, 5000);
 
         Height = $("#scrollwrapper").height();
         updateViewportHeight();
