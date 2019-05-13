@@ -1,129 +1,3 @@
-body{
-  background-color: #0a3863;
-  background-image: url("/static/images/1.png"),url("/static/images/2.png");
-	background-repeat:  no-repeat;
-  background-size: 100%;
-  background-position: top, bottom;
-  font-size: 18px;
-}
-
-
-/**************************************
-CHANGES TO THE HEADER
-**************************************/
-.navbar-brand{
-  width:160px;
-}
-.navbar-brand img{
-  position:absolute;
-  top:5px;
-  height:40px;
-}
-
-.navbar-inverse .navbar-brand,
-.navbar-inverse .navbar-nav > li > a {
-  color: #fff;
-}
-.navbar-header{
-  background:none;
-  }
-.navbar-inverse{
-  background: linear-gradient(rgba(3, 55, 99,0.7), rgba(6, 34, 58, 0.8));
-  border:none;
-  border-radius: 0px;
-}
-.navbar-inverse .navbar-nav > .active > a:hover {
-    background: linear-gradient(rgba(22, 12, 71,1), rgba(19, 9, 66, 1));
-}
-.navbar-inverse .navbar-nav > .active > a{
-    background: linear-gradient(rgba(22, 12, 71,0.5), rgba(19, 9, 66, 0.5));
-}
-.navbar {margin-bottom: 0px;}
-
-/**************************************
-GENERAL CSS
-**************************************/
-.content{
-margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-  background: rgba(130, 191, 214, 0.7);
-  box-sizing: border-box;
-}
-
-h1{
-  text-align: center;
-}
-
-/**************************************
-STICKY FOOTER
-**************************************/
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 50px;
-  background:  rgba(6, 34, 58, 0.8);
-
-}
-
-
-/**************************************
-LIST PRESENTATION
-**************************************/
-
-.order, .country, .artist, .title, .intro, .info,.score,.users,.lover,.hater{
-  display:inline-block;
-  padding:0px;
-  margin:0px;
-  box-sizing: border-box;
-  padding-top:5px;
-  padding-bottom: 5px;
-  font-size: 22px;
-}
-.intro{
-  width:calc(30% - 5px);
-  padding-left: 5px;}
-.order{
-  width:calc(20% - 5px);
-  text-align: center;
-  }
-
-.country{
-  width:calc(80% - 5px);
-  }
-
-.info{
-  width:calc(70% - 5px);
-  padding-left:
-  }
-
-.artist{
-  width:calc(40% - 5px);
-}
-.title{
-  width:calc(50% - 5px);
-}
-.users{
-  width:100%;
-  text-align: center;
-}
-.score{
-  width:calc(10% - 5px);
-  text-align: center;
-}
 
 .partylist{display:flex;}
 .partylist .order{width:25px;  font-size:14pt;}
@@ -144,18 +18,7 @@ LIST PRESENTATION
 
 
 
-.listitem{
-	width:100%;
-	background: rgba(130, 191, 214, 0.8);
-	border:1px solid #bed3e5;
-	box-sizing: border-box;
-	height:auto;
-  position:relative;
-  color:black;
-}
-.listitem:nth-of-type(2n){
-	background: rgba(167, 213, 229, 0.7);
-}
+
 .bottomlist{
   background: rgba(183, 137, 137, 0.7);
 }
@@ -174,7 +37,6 @@ LIST PRESENTATION
   background: rgba(0, 0, 0, 0.5);
   color:#bed3e5;
   font-weight: bold;
-  border: 1px solid black;
 }
 
 .memberlist{
@@ -201,12 +63,7 @@ h3.listheading{
 
 
 
-.listitem:hover{
-	color:#eeefce;
-	background: rgba(13, 39, 66, 0.5);
-  border:1px solid #051f28;
-	cursor:pointer;
-}
+
 
 .separator{display:none;}
 
@@ -219,7 +76,6 @@ h3.listheading{
   border-radius: 50%;
   background: rgba(13, 39, 66, 0.5);
   color:#cee7ef;
-  border: 1px solid #cee7ef;
   text-decoration: none;
   box-sizing: border-box;
 }
@@ -246,39 +102,7 @@ h3.listheading{
   LIST PRESENTATION
   **************************************/
 
-  .order, .country, .artist, .title, .intro, .info,.score,.users,.lover,.hater{
-    display:inline-block;
-    padding:0px;
-    margin:0px;
-    box-sizing: border-box;
-    padding-bottom:2px;
-    padding-top:2px;
-  }
-  .intro{
-    width:50%;
-    padding-left: 5px;
-  }
 
-  .order{
-    width:calc(20% - 5px);
-    text-align: center;
-  }
-
-  .country{
-    width:calc(80% - 5px);
-  }
-
-  .info{
-    width:calc(50% - 5px);
-    padding-left:
-  }
-
-  .artist{
-    display:none;
-  }
-  .title{
-    width:calc(75% - 10px);
-  }
   .users{
     display:none;}
   .score{
@@ -295,21 +119,7 @@ h3.listheading{
   }
 }
 
-.hasvotes{
-  background: rgba(3, 55, 99, 0.2);
-  border 1px solid black;
-  padding:2px;
-}
 
-.hasvotes img{
-  width:20px;
-}
-
-.tinyitems{
-  width:25px;
-  display:inline-block;
-  text-align: center;
-}
 
 /**************************************
 VOTING PAGE PRESENTATION
@@ -317,7 +127,6 @@ VOTING PAGE PRESENTATION
 
 #songinformation,#votingbox {
   width:100%;
-  border:1px solid #d1d1d1;
   padding:10px;
   box-sizing: border-box;
   height:auto;
@@ -329,13 +138,12 @@ VOTING PAGE PRESENTATION
   margin-top: -5px;
 }
 #songinformation{
-  background: rgba(22, 68, 96, 0.6);;
+  background: #0f5a8a;
   color:white;
-  border:1px solid black;
 }
 
 #votingbox{
-  background: rgba(203, 224, 237, 0.3);
+  background: #0f5a8a;
   text-align: center;
 }
 
@@ -349,7 +157,6 @@ VOTING PAGE PRESENTATION
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  border:1px solid #d1d1d1;
   box-sizing: border-box;
   height:auto;
   position:relative;
@@ -357,19 +164,19 @@ VOTING PAGE PRESENTATION
   padding-bottom:5px;
 }
 
-.bonuspoints{background: rgba(190, 219, 199, 0.3);}
-.minuspoints{background: rgba(219, 193, 190, 0.4);}
-.givepoints{background: rgba(203, 224, 237, 0.4);}
+.bonuspoints{background: rgb(131, 207, 154);}
+.minuspoints{background: rgb(245, 135, 122);}
+.givepoints{background: rgb(79, 179, 234);}
 
 .submitbutton{
   margin-top:10px;
   width:100%;
   background: rgba(0, 0, 0, 0.8);
-  border:1px solid #000;
   border-radius:5px;
   box-sizing: border-box;
   padding: 5px;
   color:white;
+  border:0px;
 }
 
 .submitbutton:hover{

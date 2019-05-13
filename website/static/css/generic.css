@@ -1,0 +1,94 @@
+
+body{
+  background-color: #0a3863;
+	background-repeat:  no-repeat;
+  background-size: 100%;
+  background-position: top, bottom;
+  font-size: 18px;
+}
+
+h1,h2,h3,h4,h5{
+  color:white;
+}
+
+
+/**************************************
+CHANGES TO THE HEADER
+**************************************/
+.navbar-brand{
+  width:160px;
+}
+.navbar-brand img{
+  position:absolute;
+  top:5px;
+  height:40px;
+}
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+}
+.navbar-header{
+  background:none;
+  }
+.navbar-inverse{
+  background: rgba(6, 34, 58, 0.8);
+  border:none;
+  border-radius: 0px;
+}
+.navbar-inverse .navbar-nav > .active > a:hover {
+    background: linear-gradient(rgba(22, 12, 71,1), rgba(19, 9, 66, 1));
+}
+.navbar-inverse .navbar-nav > .active > a{
+    background: linear-gradient(rgba(22, 12, 71,0.5), rgba(19, 9, 66, 0.5));
+}
+.navbar {margin-bottom: 0px;}
+
+/**************************************
+GENERAL CSS
+**************************************/
+.content{
+margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+  background: rgba(130, 191, 214, 0.7);
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 769px) {
+.container{
+  margin:0px;
+  padding:0px;
+  width:100%;
+}
+}
+h1,
+.text-muted{
+  text-align: center;
+}
+
+
+
+
+/**************************************
+STICKY FOOTER
+**************************************/
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background:  rgba(6, 34, 58, 0.8);
+
+}

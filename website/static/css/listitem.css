@@ -1,0 +1,99 @@
+.listitem{
+	width:calc(100% - 30px);
+  margin-left:15px;
+	background: rgb(15, 90, 138);
+	box-sizing: border-box;
+	height:auto;
+  position:relative;
+  color:white;
+  margin-bottom:5px;
+  padding-top:10px;
+  padding-bottom:3px;
+  position:relative;
+}
+
+.listitem:nth-of-type(2n){
+	background: rgba(4, 87, 132, 0.7);
+}
+
+.listitem:hover{
+	color:#eeefce;
+	background: rgba(13, 39, 66, 0.5);
+  cursor:pointer;
+}
+
+.listitem div{
+  display:inline-block;
+  padding-left:5px;
+  padding-right:5px;
+
+  max-width: calc(100% - 15px)
+}
+
+.listitem .intro{
+  color:#76dce9;
+}
+
+.order{
+  background:#2d7ea4;
+  color:white;
+  width:25px;
+  height:25px;
+  text-align:center;
+  position:absolute;
+  left:-10px;
+}
+
+.listheading .order{
+  background:none;
+}
+
+.listitem .country{
+  padding-left: 20px;
+}
+
+.listitem .separator{
+  display:none;
+}
+
+.title{
+  color:#76dce9;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 769px) {
+  .listitem .intro{
+    display:block;
+    width:100%;
+  }
+}
+
+/**************************************
+VOTE DISPLAYER
+**************************************/
+.listitem  .hasvotes{
+  background: #29779b;
+  width:100%;
+  max-width:100%;
+  display:block;
+  padding:2px;
+}
+
+.hasvotes img{
+  width:20px;
+}
+
+.tinyitems{
+  width:25px;
+  display:inline-block;
+  text-align: center;
+}
+
+.tinyitems:last-child{
+  background:#2d7ea4;
+  width:50px;
+  height:50px;
+  position: absolute;
+  right:-10px;
+  top:8px;
+}
