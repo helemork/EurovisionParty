@@ -17,7 +17,7 @@
         <div class="title">{{song.title}}</div>
       </div>
       <!--<button class="votebutton" onclick="location.href='{% url 'vote' song.id %}'">Vote</button>-->
-      {% if song.vote %}
+      {% if song.vote and not user.easy_mode %}
       <div class="hasvotes">
         <div class="tinyitems"><img src="{% static 'images/show.png' %}" >{{song.vote.show}}</div>
         <div class="tinyitems"><img src="{% static 'images/lights.png' %}" >{{song.vote.lightshow}} </div>

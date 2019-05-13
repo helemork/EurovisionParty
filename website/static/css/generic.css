@@ -83,12 +83,43 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 50px;
-  background:  rgba(6, 34, 58, 0.8);
 
+
+.bot_toggler{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  background:#0f5a8a;
+  color:white;
+  box-sizing: border-box;
+  display:inline-block;
+  font-size:0;
+  border-top:1px solid rgba(0,0,0,0.2);
+}
+
+.bot_toggler .active_tab,
+.bot_toggler a{
+  background:transparent;
+  border:0px;
+  width:50%;
+  display: inline-block;
+  margin: 0px;
+  height:50px;
+  box-sizing: border-box;
+  font-size:12pt;
+  max-width:50%;
+  text-align: center;
+  padding:15px;
+  color:white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.bot_toggler .active_tab{
+  background: rgb(79, 179, 234);
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 769px) {
+  .bot_toggler{display: none;}
 }
