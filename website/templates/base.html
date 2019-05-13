@@ -39,6 +39,7 @@
             <li {% if active == 'global_scoreboard' %}class="active"{% endif %}><a href="{% url 'global_scoreboard' %}">Global</a></li>
         {% endif %}
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
           <li><a href=""><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
@@ -48,6 +49,13 @@
           <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           {% endif %}
       </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if user.easy_mode %}
+            <li>Easy mode <a href="{% url 'switch_mode' %}">Switch</a></li>
+            {% else %}
+            <li>Advanced mode <a href="{% url 'switch_mode' %}">Switch</a></li>
+            {% endif %}
+        </ul>
     </div>
   </div>
 </nav>

@@ -18,12 +18,11 @@
           {% csrf_token %}
           <h2>Give points</h2>
           <div class="givepoints">
-
             <div class="votingitem">
               <img src="{% static 'images/show.png' %}" >
               {% include 'score_selector.html' with name='show' title='Show' value=vote.show %}
             </div>
-            <div class="votingitem">
+            <div class="votingitem{% if user.easy_mode %} hidden{% endif %}">
               <img src="{% static 'images/lights.png' %}" >
               {% include 'score_selector.html' with name='lightshow' title='Lightshow' value=vote.lightshow %}
             </div>
@@ -31,7 +30,6 @@
               <img src="{% static 'images/costume.png' %}" >
               {% include 'score_selector.html' with name='outfit' title='Costumes' value=vote.outfit %}
             </div>
-
             <div class="votingitem">
               <img src="{% static 'images/dress.png' %}" >
               {% include 'score_selector.html' with name='dress' title='Dressbeauty' value=vote.dress %}
@@ -49,13 +47,13 @@
               <img src="{% static 'images/eurof.png' %}" >
               {% include 'score_selector.html' with name='esc_factor' title='ESC Factor, Catchyness' value=vote.esc_factor %}
             </div>
-            <div class="votingitem">
+            <div class="votingitem{% if user.easy_mode %} hidden{% endif %}">
               <img src="{% static 'images/sexy.png' %}" >
               {% include 'score_selector.html' with name='sexyness' title='Sexyness' value=vote.sexyness %}
             </div>
           </div>
 
-          <div class="bonuspoints">
+          <div class="bonuspoints{% if user.easy_mode %} hidden{% endif %}">
             <h3>Bonus Points</h3>
             <div class="votingitem">
               <img src="{% static 'images/mod.png' %}" >
@@ -75,7 +73,7 @@
             </div>
           </div>
 
-          <div class="minuspoints">
+          <div class="minuspoints{% if user.easy_mode %} hidden{% endif %}">
             <h3>Minus Points</h3>
             <div class="votingitem">
               <img src="{% static 'images/klyse.png' %}" >

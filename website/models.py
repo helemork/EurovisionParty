@@ -14,11 +14,12 @@ class Party(models.Model):
     contest = models.ForeignKey(Contest)
 
     def __str__(self):
-        return self.name
+        return self.name + ' - ' + str(self.contest)
 
 class UserParty(models.Model):
-    user = models.ForeignKey(User)
-    party = models.ForeignKey(Party)
+    user = models.ForeignKey(User) # Should be onetone
+    party = models.ForeignKey(Party) # Should be onetoone
+    easy_mode = models.BooleanField(default=True)
 
     def get_user_party(user):
         try:
