@@ -12,7 +12,7 @@ def get_current_year():
 
 def add_party_to_user(request):
     request.user.party = UserParty.get_user_party(request.user)
-    request.user.easy_mode = UserParty.objects.get(user=request.user).easy_mode
+    request.user.easy_mode = UserParty.has_easy_mode(request.user)
 
 def index(request):
     add_party_to_user(request)

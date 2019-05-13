@@ -27,6 +27,13 @@ class UserParty(models.Model):
         except:
             return None
 
+    def has_easy_mode(user):
+        try:
+            UserParty.objects.get(user=user).easy_mode
+        except:
+            return None
+
+
 
 class Song(models.Model):
     order = models.PositiveIntegerField()

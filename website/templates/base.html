@@ -49,6 +49,7 @@
           <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           {% endif %}
       </ul>
+    {% if user.party %}
         <ul class="nav navbar-nav navbar-right">
             {% if user.easy_mode %}
             <li>Easy mode <a href="{% url 'switch_mode' %}">Switch</a></li>
@@ -56,6 +57,7 @@
             <li>Advanced mode <a href="{% url 'switch_mode' %}">Switch</a></li>
             {% endif %}
         </ul>
+    {% endif %}
     </div>
   </div>
 </nav>
