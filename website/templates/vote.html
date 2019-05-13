@@ -26,14 +26,22 @@
               <img src="{% static 'images/lights.png' %}" >
               {% include 'score_selector.html' with name='lightshow' title='Lightshow' value=vote.lightshow %}
             </div>
-            <div class="votingitem">
+
+            <div class="votingitem {% if user.easy_mode %} hidden{% endif %}">
               <img src="{% static 'images/costume.png' %}" >
               {% include 'score_selector.html' with name='outfit' title='Costumes' value=vote.outfit %}
             </div>
-            <div class="votingitem">
+
+            <div class="votingitem ">
               <img src="{% static 'images/dress.png' %}" >
-              {% include 'score_selector.html' with name='dress' title='Dressbeauty' value=vote.dress %}
+              {% if user.easy_mode %}
+                {% include 'score_selector.html' with name='dress' title='Outfit' value=vote.dress %}
+              {%else%}
+                {% include 'score_selector.html' with name='dress' title='Dress' value=vote.dress %}
+              {% endif %}
+
             </div>
+
             <div class="votingitem">
               <img src="{% static 'images/melody.png' %}" >
               {% include 'score_selector.html' with name='melody' title='Melody' value=vote.melody %}

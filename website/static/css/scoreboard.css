@@ -6,3 +6,7 @@
 #scoreboard .listitem div{
   display: inline-block;
 }
+
+#scoreboard .listheading .order{
+  display: none;
+}
