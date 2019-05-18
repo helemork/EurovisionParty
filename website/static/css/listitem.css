@@ -10,6 +10,7 @@
   padding-top:10px;
   padding-bottom:3px;
   position:relative;
+	min-height: 60px;
 }
 
 .listitem:nth-of-type(2n){
@@ -31,6 +32,11 @@
 
 .listitem .intro{
   color:#76dce9;
+}
+
+.song_voted{
+	background:#007b80;
+	color:black;
 }
 
 .order{
@@ -61,13 +67,12 @@
   font-style: italic;
 }
 
-@media only screen and (max-width: 769px) {
   .listitem .intro,
   .listitem .info{
     display:block;
     width:calc(100% - 60px);
   }
-}
+
 
 /**************************************
 VOTE DISPLAYER
@@ -82,6 +87,10 @@ VOTE DISPLAYER
 
 .hasvotes img{
   width:20px;
+}
+
+.hasvotes.easy_hasvotes{
+	padding:0px;
 }
 
 .tinyitems{

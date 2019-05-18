@@ -5,12 +5,16 @@ body{
   background-size: 100%;
   background-position: top, bottom;
   font-size: 18px;
+  color:white;
 }
 
 h1,h2,h3,h4,h5{
   color:white;
 }
 
+input,select{
+  color:black;
+}
 
 /**************************************
 CHANGES TO THE HEADER
@@ -51,7 +55,6 @@ GENERAL CSS
 margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
-  background: rgba(130, 191, 214, 0.7);
   box-sizing: border-box;
 }
 @media only screen and (max-width: 769px) {
@@ -66,6 +69,9 @@ h1,
   text-align: center;
 }
 
+label{
+  color:white;
+}
 
 
 
