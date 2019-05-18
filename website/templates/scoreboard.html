@@ -1,7 +1,6 @@
 {% load static %}
 
 <div class="partylist listheading listitem">
-        <div class="order">Nr.</div>
         <div class="country">Country</div>
         <div class="artist">Artist</div>
         <div class="separator"> - </div>
@@ -18,7 +17,7 @@
         <div class="separator"> - </div>
         <div class="title">{{song.title}}</div>
         <div class="emptyspace"></div>
-        <div class="score">{{song.score}}</div>
+        <div class="_scorescore">{{song.score}}</div>
 </div>
 <div class="listitem flexyflex">
 {% for voter, score, real_score in song.voters %}

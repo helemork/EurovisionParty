@@ -105,6 +105,7 @@ h3.listheading{
 
   .users{
     display:none;}
+
   .score{
     width:calc(25% - 5px);
     text-align: center;

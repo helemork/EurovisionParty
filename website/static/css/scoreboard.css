@@ -31,7 +31,7 @@
   position:absolute;
   right:10px;
   font-size: 18pt;
-  top:calc(50%-10px);
+  top:calc(50% - 10px);
 }
 
 .global .listitem div{
