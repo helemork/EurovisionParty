@@ -209,30 +209,35 @@ VOTING FORM OPTIONS
 
 .flexyflex{
   display:flex;
-  text-align: center;
+  flex-direction: column;
 }
 .listitem .itemitem{
-  flex:1;
-  display:inline-block;
-  text-align: center;
-  padding:0px;
-    max-width: 100%;
+  max-width: 100%;
+  width:100%:
+}
+
+.listitem .barcontainer{
+  max-width: 100%;
+  width:100%;
+  position: relative;
 }
 
 .itemitem span{
-  background:rgba(255,255,255,0.3);
-  border-radius:50%;
-  padding:2px;
-  display:block;
-  text-align: center;
+  width:10px;
+  height:20px;
 }
 
-.bar{margin:2px; background:rgba(255,255,255,0.5);}
+.bar{
+  margin:2px;
+  background:rgba(0,0,0,0.5);
+  height:10px;
+  right:0;
+  top:7px;
+  position: absolute;
+}
 
 .listitem .downtext{
   margin-top:5px;
-  text-orientation:sideways;
-  writing-mode: vertical-lr;
   font-size:10pt;
   text-align: center;
   margin-left: auto;

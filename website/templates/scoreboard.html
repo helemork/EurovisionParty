@@ -22,12 +22,11 @@
 <div class="listitem flexyflex">
 {% for voter, score, real_score in song.voters %}
     <div class="itemitem">
-        <div style="min-height:15px;">
-          <div class="bar" style="height:calc(40px * {{ score }} / 100 );"></div>
+        <div class="barcontainer">
           <span>{{ real_score }}</span>
           <div class="downtext">{{ voter|slice:"6" }}</div>
+          <div class="bar" style="width:calc(60px * {{ score }} / 100 );"></div>
         </div>
-
     </div>
 {% endfor %}
 </div>
